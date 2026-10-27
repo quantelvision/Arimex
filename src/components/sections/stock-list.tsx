@@ -7,30 +7,32 @@ import { stock, whatsappMessages } from "@/content/site";
 import { stockSizes, type StockSize } from "@/content/stock";
 import { whatsappUrl } from "@/lib/whatsapp";
 
-function toRows(name: string, sizes: StockSize[]): StockRow[] {
+function toRows(product: "pine" | "spruce", name: string, sizes: StockSize[]): StockRow[] {
   return sizes.map((item) => {
     const size = `${item.thickness} x ${item.width}`;
     return {
-      id: `${name}-${size}`,
+      id: `${product}-${size}`,
       label: `${name} ${size} mm`,
       size,
-      askHref: "#contact",
-      whatsappHref: whatsappUrl(whatsappMessages.stockSize(name.toLowerCase(), size)),
+      quantity: item.quantity?.toString() ?? stock.onRequest,
+      grade: item.grade ?? stock.onRequest,
+      product,
+      prefillSize: item.grade ? `${size} mm, grade ${item.grade}` : `${size} mm`,
     };
   });
 }
 
 export default function StockList() {
   const tables = [
-    { id: "pine", heading: stock.tables.pine, rows: toRows(stock.tables.pine, stockSizes.pine) },
-    { id: "spruce", heading: stock.tables.spruce, rows: toRows(stock.tables.spruce, stockSizes.spruce) },
+    { id: "pine", heading: stock.tables.pine, rows: toRows("pine", stock.tables.pine, stockSizes.pine) },
+    { id: "spruce", heading: stock.tables.spruce, rows: toRows("spruce", stock.tables.spruce, stockSizes.spruce) },
   ].filter((table) => table.rows.length > 0);
 
   return (
     <Section id="stock" ground="surface" heading={stock.heading} intro={stock.intro}>
       {tables.length > 0 ? (
         <>
-          <div className="grid gap-12 md:grid-cols-2 md:gap-10">
+          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-10">
             {tables.map((table) => (
               <StockTable
                 key={table.id}
@@ -38,8 +40,7 @@ export default function StockList() {
                 headingId={`stock-${table.id}`}
                 columns={stock.columns}
                 rows={table.rows}
-                askLabel={stock.askAction}
-                whatsappLabel={stock.whatsappAction}
+                enquireLabel={stock.askAction}
               />
             ))}
           </div>

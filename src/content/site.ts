@@ -50,10 +50,10 @@ export const hero = {
 };
 
 export const trustPoints = [
-  "Pallets made to order",
-  "2 way, 4 way and Euro size",
-  "Custom sizes",
-  "Based in Alandur, Chennai",
+  { id: "made-to-order", text: "Pallets made to order" },
+  { id: "pallet-types", text: "2 way, 4 way and Euro size" },
+  { id: "custom-sizes", text: "Custom sizes" },
+  { id: "location", text: "Based in Alandur, Chennai" },
 ];
 
 export const productOptions = [
@@ -72,6 +72,7 @@ export const products = {
     {
       id: "pine",
       name: "Pine",
+      category: "Softwood timber",
       summary: "A warm, yellow-toned softwood with visible knots and resin. Easy to cut, nail and finish.",
       uses: ["Pallets and crates", "Door and window frames", "Furniture and joinery", "Building and site work"],
       // TODO(client): finish, grades, drying and origin for pine (open questions 6 and 7)
@@ -85,6 +86,7 @@ export const products = {
     {
       id: "spruce",
       name: "Spruce",
+      category: "Softwood timber",
       summary: "A pale softwood, close to white, with small knots and an even look. Light to handle and clean to finish.",
       uses: ["Packaging and crates", "Pallets", "Interior joinery", "Light framing"],
       // TODO(client): finish, grades, drying and origin for spruce (open questions 6 and 7)
@@ -98,6 +100,7 @@ export const products = {
     {
       id: "pallets",
       name: "Wooden pallets",
+      category: "Made to order",
       summary: "Built after you order, to the size and load you need. We make 2 way, 4 way, Euro size and custom pallets.",
       uses: ["Factory dispatch", "Warehouse storage", "Shipping and logistics", "Heavy or odd-shaped loads"],
       specs: [
@@ -116,8 +119,9 @@ export const stock = {
   heading: "Sizes we supply",
   intro: "Pine and spruce sizes we supply. Ask about a size and we confirm availability and price.",
   tables: { pine: "Pine", spruce: "Spruce" },
-  columns: { size: "Thickness x width (mm)", actions: "Enquire" },
-  askAction: "Ask about this size",
+  columns: { size: "Size (mm)", quantity: "Quantity (m³)", grade: "Grade", actions: "Enquire" },
+  onRequest: "On request",
+  askAction: "Enquire",
   whatsappAction: "WhatsApp",
   otherSizes: "Need a size that is not listed? Ask us and we will check.",
   emptyState: "Our size list is being updated. Tell us the size you need and we will check.",
@@ -318,7 +322,7 @@ export const faq = {
 
 export const contact = {
   heading: "Request a quote",
-  intro: "Send the details below and we reply by phone, WhatsApp or email. For a quick question, call or message us.",
+  intro: "Send the details below and we reply by phone, WhatsApp or email.",
   detailsHeading: "Contact details",
   labels: { phone: "Phone", whatsapp: "WhatsApp", email: "Email", address: "Address" },
   mapAction: "Open in Google Maps",
@@ -360,7 +364,6 @@ export const enquiryForm = {
 export const whatsappMessages = {
   general: "Hello AriMex, I would like a quote.",
   product: (product: string) => `Hello AriMex, I would like a price for ${product}.`,
-  stockSize: (product: string, size: string) => `Hello AriMex, is ${product} ${size} mm available?`,
   floatingLabel: "Chat with AriMex on WhatsApp",
 };
 
