@@ -23,7 +23,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <ImagePlaceholder className="aspect-[4/3] rounded-lg md:aspect-[4/5]" />
+        <ImagePlaceholder className="aspect-4/3 rounded-lg md:aspect-4/5" />
       </Container>
     </section>
   );

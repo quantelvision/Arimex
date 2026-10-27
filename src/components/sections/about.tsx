@@ -11,7 +11,7 @@ export default function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <ImagePlaceholder className="aspect-[4/3] rounded-lg" />
+        <ImagePlaceholder className="aspect-4/3 rounded-lg" />
       </div>
     </Section>
   );
