@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/hero";
 import Products from "@/components/sections/products";
 import SiteHeader from "@/components/sections/site-header";
+import StockList from "@/components/sections/stock-list";
 import TrustStrip from "@/components/sections/trust-strip";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <TrustStrip />
         <Products />
+        <StockList />
       </main>
     </>
   );
