@@ -1,4 +1,6 @@
 import About from "@/components/sections/about";
+import Contact from "@/components/sections/contact";
+import Faq from "@/components/sections/faq";
 import Hero from "@/components/sections/hero";
 import Industries from "@/components/sections/industries";
 import Ordering from "@/components/sections/ordering";
@@ -23,6 +25,8 @@ export default function Home() {
         <Quality />
         <Industries />
         <About />
+        <Faq />
+        <Contact />
       </main>
     </>
   );
