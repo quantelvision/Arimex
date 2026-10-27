@@ -14,6 +14,7 @@ type ButtonProps = {
   variant?: keyof typeof variants;
   href?: string;
   newTab?: boolean;
+  prefill?: { product: string; size?: string };
   type?: "button" | "submit";
   disabled?: boolean;
   className?: string;
@@ -24,6 +25,7 @@ export default function Button({
   variant = "primary",
   href,
   newTab = false,
+  prefill,
   type = "button",
   disabled,
   className = "",
@@ -36,6 +38,8 @@ export default function Button({
         href={href}
         target={newTab ? "_blank" : undefined}
         rel={newTab ? "noopener noreferrer" : undefined}
+        data-product={prefill?.product}
+        data-size={prefill?.size}
         className={classes}
       >
         {children}

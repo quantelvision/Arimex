@@ -1,6 +1,7 @@
 import { EnvelopeSimpleIcon, PhoneIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Card from "@/components/card";
+import EnquiryPrefill from "@/components/enquiry-prefill";
 import Section from "@/components/section";
 import SelectField from "@/components/select-field";
 import TextField from "@/components/text-field";
@@ -25,13 +26,14 @@ const channels = [
   { label: contact.labels.email, href: `mailto:${business.email}`, text: business.email, Icon: EnvelopeSimpleIcon, newTab: false },
 ];
 
+const formId = "enquiry-form";
 const fields = enquiryForm.fields;
 
 export default function Contact() {
   return (
     <Section id="contact" heading={contact.heading} intro={contact.intro}>
       <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
-        <form className="grid gap-5 sm:grid-cols-2">
+        <form id={formId} className="grid gap-5 sm:grid-cols-2">
           <p className="text-small text-muted sm:col-span-2">{enquiryForm.requiredNote}</p>
           <TextField name="name" label={fields.name.label} required autoComplete="name" />
           <TextField
@@ -107,6 +109,7 @@ export default function Contact() {
           </dl>
         </Card>
       </div>
+      <EnquiryPrefill formId={formId} />
     </Section>
   );
 }

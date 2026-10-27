@@ -35,7 +35,9 @@ export default function Pallets() {
         <div className="rounded-lg border border-line bg-surface p-6">
           <p className="text-heading">{pallets.matchNote}</p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button href="#contact">{pallets.action}</Button>
+            <Button href="#contact" prefill={{ product: "pallets" }}>
+              {pallets.action}
+            </Button>
             <Button href={whatsappUrl(whatsappMessages.product("wooden pallets"))} variant="secondary" newTab>
               <WhatsappLogoIcon aria-hidden="true" size={20} />
               {hero.whatsappAction}
