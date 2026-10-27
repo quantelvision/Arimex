@@ -16,18 +16,18 @@ type StockTableProps = {
   enquireLabel: string;
 };
 
-const cell = "px-3 py-3 sm:px-4";
+const cell = "border border-field px-2.5 py-3.5 sm:px-6 sm:py-5";
 
 export default function StockTable({ heading, headingId, columns, rows, enquireLabel }: StockTableProps) {
   return (
-    <div>
+    <div className="min-w-0">
       <h3 id={headingId} className="text-h3">
         {heading}
       </h3>
-      <div className="mt-4 overflow-x-auto rounded-lg border border-field">
-        <table aria-labelledby={headingId} className="w-full border-collapse text-left tabular-nums">
-          <thead className="bg-band text-on-band">
-            <tr className="divide-x divide-on-band/20 text-small">
+      <div className="mt-5 overflow-x-auto">
+        <table aria-labelledby={headingId} className="w-full border-collapse text-left text-body tabular-nums sm:text-lead md:table-fixed">
+          <thead className="bg-band text-small text-on-band sm:text-body">
+            <tr>
               <th scope="col" className={`${cell} font-semibold`}>{columns.size}</th>
               <th scope="col" className={`${cell} font-semibold`}>{columns.quantity}</th>
               <th scope="col" className={`${cell} font-semibold`}>{columns.grade}</th>
@@ -36,16 +36,16 @@ export default function StockTable({ heading, headingId, columns, rows, enquireL
           </thead>
           <tbody className="bg-surface">
             {rows.map((row) => (
-              <tr key={row.id} className="divide-x divide-line border-t border-line even:bg-bg">
+              <tr key={row.id} className="even:bg-bg">
                 <th scope="row" className={`${cell} font-semibold whitespace-nowrap text-heading`}>{row.size}</th>
                 <td className={cell}>{row.quantity}</td>
                 <td className={cell}>{row.grade}</td>
-                <td className="px-2 py-1.5 text-center sm:px-3">
+                <td className="border border-field p-1.5 text-center sm:px-4 sm:py-2">
                   <a
                     href="#contact"
                     data-product={row.product}
                     data-size={row.prefillSize}
-                    className="inline-flex min-h-11 items-center justify-center rounded-md border border-field px-3 text-small font-semibold text-heading hover:bg-ink/5"
+                    className="inline-flex min-h-11 items-center justify-center border border-field px-3 text-small font-semibold text-heading hover:bg-ink/5 sm:min-h-12 sm:px-8 sm:text-body"
                   >
                     {enquireLabel}
                     <span className="sr-only">: {row.label}</span>

@@ -32,7 +32,7 @@ export default function StockList() {
     <Section id="stock" ground="surface" heading={stock.heading} intro={stock.intro}>
       {tables.length > 0 ? (
         <>
-          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-10">
+          <div className="grid gap-14">
             {tables.map((table) => (
               <StockTable
                 key={table.id}
