@@ -18,6 +18,7 @@ type ButtonProps = {
   prefill?: { product: string; size?: string };
   type?: "button" | "submit";
   disabled?: boolean;
+  onClick?: () => void;
   className?: string;
 };
 
@@ -29,6 +30,7 @@ export default function Button({
   prefill,
   type = "button",
   disabled,
+  onClick,
   className = "",
 }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${className}`;
@@ -49,7 +51,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} disabled={disabled} className={classes}>
+    <button type={type} disabled={disabled} onClick={onClick} className={classes}>
       {children}
     </button>
   );

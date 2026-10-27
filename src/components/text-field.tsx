@@ -11,6 +11,7 @@ type TextFieldProps = {
   type?: "text" | "tel" | "email";
   autoComplete?: string;
   multiline?: boolean;
+  maxLength?: number;
   defaultValue?: string;
 };
 
@@ -25,6 +26,7 @@ export default function TextField({
   type = "text",
   autoComplete,
   multiline = false,
+  maxLength,
   defaultValue,
 }: TextFieldProps) {
   const control = {
@@ -32,6 +34,7 @@ export default function TextField({
     name,
     required,
     disabled,
+    maxLength,
     defaultValue,
     "aria-invalid": error ? true : undefined,
     "aria-describedby": describedBy(name, hint, error),
