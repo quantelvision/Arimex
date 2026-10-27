@@ -327,7 +327,6 @@ export const contact = {
   detailsHeading: "Contact details",
   labels: { phone: "Phone", whatsapp: "WhatsApp", email: "Email", address: "Address" },
   mapAction: "Open in Google Maps",
-  mapAlt: "Map showing No 36 A, Appavu Street, Alandur, Chennai",
 };
 
 export const enquiryForm = {
@@ -350,6 +349,7 @@ export const enquiryForm = {
   success: {
     heading: "Enquiry received",
     text: "Thank you. We will reply by phone or WhatsApp.",
+    anotherAction: "Send another enquiry",
   },
   errors: {
     summary: "Please fix the fields marked below.",
@@ -357,6 +357,7 @@ export const enquiryForm = {
     phone: "Enter a valid Indian phone number, for example 98765 43210.",
     email: "Enter a valid email address, or leave it blank.",
     product: "Choose a product.",
+    tooLong: (max: number) => `Keep this to ${max} characters or fewer.`,
     rateLimited: "You have sent several enquiries in a short time. Wait a few minutes, or call or WhatsApp us.",
     failed: "Your enquiry could not be sent. Please call or WhatsApp us on +91 75501 30234.",
   },
