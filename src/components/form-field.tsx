@@ -12,23 +12,25 @@ export function describedBy(id: string, hint?: string, error?: string) {
 type FormFieldProps = {
   id: string;
   label: string;
+  optionalLabel?: string;
   hint?: string;
   error?: string;
   children: ReactNode;
 };
 
-export default function FormField({ id, label, hint, error, children }: FormFieldProps) {
+export default function FormField({ id, label, optionalLabel, hint, error, children }: FormFieldProps) {
   return (
     <div className="grid content-start gap-1.5">
       <label htmlFor={id} className="font-semibold text-ink">
         {label}
+        {optionalLabel && <span className="font-normal text-muted"> {optionalLabel}</span>}
       </label>
+      {children}
       {hint && (
         <p id={`${id}-hint`} className="text-small text-muted">
           {hint}
         </p>
       )}
-      {children}
       {error && (
         <p id={`${id}-error`} className="flex items-start gap-1.5 text-small font-semibold text-error">
           <WarningCircleIcon aria-hidden="true" size="1.25em" className="shrink-0" />

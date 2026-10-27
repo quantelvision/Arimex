@@ -3,6 +3,7 @@ import FormField, { controlClass, describedBy } from "./form-field";
 type TextFieldProps = {
   name: string;
   label: string;
+  optionalLabel?: string;
   hint?: string;
   error?: string;
   required?: boolean;
@@ -16,6 +17,7 @@ type TextFieldProps = {
 export default function TextField({
   name,
   label,
+  optionalLabel,
   hint,
   error,
   required,
@@ -37,7 +39,7 @@ export default function TextField({
   };
 
   return (
-    <FormField id={name} label={label} hint={hint} error={error}>
+    <FormField id={name} label={label} optionalLabel={optionalLabel} hint={hint} error={error}>
       {multiline ? <textarea rows={5} {...control} /> : <input type={type} autoComplete={autoComplete} {...control} />}
     </FormField>
   );
