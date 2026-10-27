@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--ax-bg);
+  --color-surface: var(--ax-surface);
+  --color-band: var(--ax-band);
+  --color-on-band: var(--ax-on-band);
+  --color-ink: var(--ax-ink);
+  --color-heading: var(--ax-heading);
+  --color-muted: var(--ax-muted);
+  --color-accent: var(--ax-accent);
+  --color-cta: var(--ax-cta);
+  --color-on-cta: var(--ax-on-cta);
+  --color-wood: var(--ax-wood);
+  --color-line: var(--ax-line);
+  --font-heading: var(--ax-font-heading);
+  --font-body: var(--ax-font-body);
+}
+
+@layer base {
+html {
+  background: var(--ax-bg);
+  color: var(--ax-ink);
+  font-family: var(--ax-font-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, .heading {
+  font-family: var(--ax-font-heading);
+  font-weight: var(--ax-heading-weight);
+  font-stretch: var(--ax-heading-stretch);
+  letter-spacing: var(--ax-heading-tracking);
+  color: var(--ax-heading);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.on-band h1, .on-band h2, .on-band h3 {
+  color: var(--ax-on-band);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ax-accent);
+  outline-offset: 3px;
+}
+
+}
+
+html.theme-anim, html.theme-anim * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-anim, html.theme-anim * {
+    transition: none;
+  }
+}
