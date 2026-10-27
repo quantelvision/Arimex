@@ -1,5 +1,5 @@
 import About from "@/components/sections/about";
-import Contact from "@/components/sections/contact";
+import Contact, { enquiryFormId } from "@/components/sections/contact";
 import Faq from "@/components/sections/faq";
 import Hero from "@/components/sections/hero";
 import Industries from "@/components/sections/industries";
@@ -11,6 +11,9 @@ import SiteFooter from "@/components/sections/site-footer";
 import SiteHeader from "@/components/sections/site-header";
 import StockList from "@/components/sections/stock-list";
 import TrustStrip from "@/components/sections/trust-strip";
+import WhatsappFloat from "@/components/whatsapp-float";
+import { whatsappMessages } from "@/content/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export default function Home() {
   return (
@@ -30,6 +33,11 @@ export default function Home() {
         <Contact />
       </main>
       <SiteFooter />
+      <WhatsappFloat
+        href={whatsappUrl(whatsappMessages.general)}
+        label={whatsappMessages.floatingLabel}
+        hideOverId={enquiryFormId}
+      />
     </>
   );
 }
