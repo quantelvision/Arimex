@@ -1,18 +1,14 @@
 import generated from "./stock.generated.json";
 
-export type StockItem = {
+export type StockSize = {
   thickness: number;
   width: number;
-  length: number | null;
-  quantity: number | null;
-  grade: string;
 };
 
-type StockList = {
-  asOf: string | null;
-  location: string | null;
-  pine: StockItem[];
-  spruce: StockItem[];
+type StockSizes = {
+  pine: StockSize[];
+  spruce: StockSize[];
 };
 
-export const stockList: StockList = generated;
+// TODO(client): stock.xlsx holds dummy sizes from the reference site, replace them with the AriMex list (open question 11)
+export const stockSizes: StockSizes = generated;

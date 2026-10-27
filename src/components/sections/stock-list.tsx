@@ -4,21 +4,16 @@ import Section from "@/components/section";
 import StockTable, { type StockRow } from "@/components/stock-table";
 import TextLink from "@/components/text-link";
 import { stock, whatsappMessages } from "@/content/site";
-import { stockList, type StockItem } from "@/content/stock";
+import { stockSizes, type StockSize } from "@/content/stock";
 import { whatsappUrl } from "@/lib/whatsapp";
 
-const dateFormat = new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
-
-function toRows(name: string, items: StockItem[]): StockRow[] {
-  return items.map((item, index) => {
+function toRows(name: string, sizes: StockSize[]): StockRow[] {
+  return sizes.map((item) => {
     const size = `${item.thickness} x ${item.width}`;
     return {
-      id: `${name}-${index}`,
+      id: `${name}-${size}`,
       label: `${name} ${size} mm`,
       size,
-      length: item.length?.toString() ?? stock.onRequest,
-      quantity: item.quantity?.toString() ?? stock.onRequest,
-      grade: item.grade,
       askHref: "#contact",
       whatsappHref: whatsappUrl(whatsappMessages.stockSize(name.toLowerCase(), size)),
     };
@@ -27,28 +22,15 @@ function toRows(name: string, items: StockItem[]): StockRow[] {
 
 export default function StockList() {
   const tables = [
-    { id: "pine", heading: stock.tables.pine, rows: toRows(stock.tables.pine, stockList.pine) },
-    { id: "spruce", heading: stock.tables.spruce, rows: toRows(stock.tables.spruce, stockList.spruce) },
+    { id: "pine", heading: stock.tables.pine, rows: toRows(stock.tables.pine, stockSizes.pine) },
+    { id: "spruce", heading: stock.tables.spruce, rows: toRows(stock.tables.spruce, stockSizes.spruce) },
   ].filter((table) => table.rows.length > 0);
 
   return (
     <Section id="stock" ground="surface" heading={stock.heading} intro={stock.intro}>
       {tables.length > 0 ? (
         <>
-          <div className="rounded-md border-l-4 border-wood bg-bg px-5 py-4">
-            {stockList.asOf && (
-              <p className="font-semibold text-heading">
-                {stock.asOfLabel} <time dateTime={stockList.asOf}>{dateFormat.format(new Date(stockList.asOf))}</time>
-              </p>
-            )}
-            {stockList.location && (
-              <p className="text-small text-muted">
-                {stock.locationLabel}: {stockList.location}
-              </p>
-            )}
-            <p className="mt-1 text-small text-muted">{stock.availabilityNote}</p>
-          </div>
-          <div className="mt-10 grid gap-12">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-10">
             {tables.map((table) => (
               <StockTable
                 key={table.id}

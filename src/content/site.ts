@@ -28,7 +28,7 @@ export const nav = {
   skipLink: "Skip to content",
   links: [
     { label: "Products", href: "#products" },
-    { label: "Stock", href: "#stock" },
+    { label: "Sizes", href: "#stock" },
     { label: "Pallets", href: "#pallets" },
     { label: "How it works", href: "#process" },
     { label: "About", href: "#about" },
@@ -76,7 +76,7 @@ export const products = {
       uses: ["Pallets and crates", "Door and window frames", "Furniture and joinery", "Building and site work"],
       // TODO(client): finish, grades, drying and origin for pine (open questions 6 and 7)
       specs: [
-        { label: "Sizes", value: "See the stock list, or ask for your size" },
+        { label: "Sizes", value: "See the sizes table, or ask for your size" },
         { label: "Grade and drying", value: "Confirmed in your quote" },
       ],
       action: "Ask for a pine price",
@@ -89,7 +89,7 @@ export const products = {
       uses: ["Packaging and crates", "Pallets", "Interior joinery", "Light framing"],
       // TODO(client): finish, grades, drying and origin for spruce (open questions 6 and 7)
       specs: [
-        { label: "Sizes", value: "See the stock list, or ask for your size" },
+        { label: "Sizes", value: "See the sizes table, or ask for your size" },
         { label: "Grade and drying", value: "Confirmed in your quote" },
       ],
       action: "Ask for a spruce price",
@@ -113,18 +113,14 @@ export const products = {
 };
 
 export const stock = {
-  heading: "Timber in stock",
-  intro: "Pine and spruce sizes we hold now. Ask about a size and we confirm availability and price.",
-  asOfLabel: "Stock as of",
-  locationLabel: "Location",
-  availabilityNote: "Stock moves quickly. We confirm availability before you place an order.",
+  heading: "Sizes we supply",
+  intro: "Pine and spruce sizes we supply. Ask about a size and we confirm availability and price.",
   tables: { pine: "Pine", spruce: "Spruce" },
-  columns: { size: "Size (mm)", length: "Length (mm)", quantity: "Quantity (m³)", grade: "Grade", actions: "Enquire" },
-  onRequest: "On request",
+  columns: { size: "Thickness x width (mm)", actions: "Enquire" },
   askAction: "Ask about this size",
   whatsappAction: "WhatsApp",
   otherSizes: "Need a size that is not listed? Ask us and we will check.",
-  emptyState: "Our stock list is being updated. Tell us the size you need and we will check.",
+  emptyState: "Our size list is being updated. Tell us the size you need and we will check.",
   emptyAction: "Ask about a size",
 };
 
@@ -290,7 +286,7 @@ export const faq = {
     },
     {
       question: "Which sizes of pine and spruce do you have?",
-      answer: "The stock list shows the sizes we hold now. Ask us about any other size.",
+      answer: "The sizes table shows the pine and spruce sizes we supply. Ask us about any other size.",
     },
     {
       question: "How is timber priced?",
