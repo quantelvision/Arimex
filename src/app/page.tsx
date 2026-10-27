@@ -1,139 +1,254 @@
-const products = [
-  { name: "Pine", line: "Sawn and planed pine for pallets, frames and furniture.", tags: ["Sizes on request", "Bulk orders"] },
-  { name: "Spruce", line: "Pale, even spruce boards for packaging and joinery.", tags: ["Sizes on request", "Bulk orders"] },
-  { name: "Wooden pallets", line: "2 way, 4 way, Euro size and custom pallets, built to your load.", tags: ["Made to order", "Custom sizes"] },
+import {
+  ArmchairIcon,
+  ArrowRightIcon,
+  CaretDownIcon,
+  ChatTextIcon,
+  CheckIcon,
+  EnvelopeSimpleIcon,
+  FactoryIcon,
+  HammerIcon,
+  HandshakeIcon,
+  HardHatIcon,
+  ListIcon,
+  MapPinIcon,
+  PhoneIcon,
+  ReceiptIcon,
+  SealCheckIcon,
+  ShippingContainerIcon,
+  TruckIcon,
+  WarehouseIcon,
+  WarningCircleIcon,
+  WhatsappLogoIcon,
+  XIcon,
+} from "@phosphor-icons/react/ssr";
+import Badge from "@/components/badge";
+import Button from "@/components/button";
+import Card from "@/components/card";
+import Container from "@/components/container";
+import PalletDiagram from "@/components/pallet-diagram";
+import Section from "@/components/section";
+import SelectField from "@/components/select-field";
+import StockTable, { type StockRow } from "@/components/stock-table";
+import TextField from "@/components/text-field";
+import TextLink from "@/components/text-link";
+import Wordmark from "@/components/wordmark";
+import { enquiryForm, productOptions, stock } from "@/content/site";
+
+const swatches = [
+  { token: "bg", className: "bg-bg" },
+  { token: "surface", className: "bg-surface" },
+  { token: "band", className: "bg-band" },
+  { token: "on-band", className: "bg-on-band" },
+  { token: "ink", className: "bg-ink" },
+  { token: "heading", className: "bg-heading" },
+  { token: "muted", className: "bg-muted" },
+  { token: "accent", className: "bg-accent" },
+  { token: "cta", className: "bg-cta" },
+  { token: "on-cta", className: "bg-on-cta" },
+  { token: "wood", className: "bg-wood" },
+  { token: "line", className: "bg-line" },
+  { token: "field", className: "bg-field" },
+  { token: "error", className: "bg-error" },
 ];
 
-const steps = ["Enquiry", "Quote", "Confirm", "Manufacture", "Quality check", "Dispatch"];
+const icons = [
+  { name: "Phone", Icon: PhoneIcon },
+  { name: "WhatsappLogo", Icon: WhatsappLogoIcon },
+  { name: "EnvelopeSimple", Icon: EnvelopeSimpleIcon },
+  { name: "MapPin", Icon: MapPinIcon },
+  { name: "ArrowRight", Icon: ArrowRightIcon },
+  { name: "CaretDown", Icon: CaretDownIcon },
+  { name: "List", Icon: ListIcon },
+  { name: "X", Icon: XIcon },
+  { name: "Check", Icon: CheckIcon },
+  { name: "WarningCircle", Icon: WarningCircleIcon },
+  { name: "ShippingContainer", Icon: ShippingContainerIcon },
+  { name: "Factory", Icon: FactoryIcon },
+  { name: "Warehouse", Icon: WarehouseIcon },
+  { name: "HardHat", Icon: HardHatIcon },
+  { name: "Armchair", Icon: ArmchairIcon },
+  { name: "ChatText", Icon: ChatTextIcon },
+  { name: "Receipt", Icon: ReceiptIcon },
+  { name: "Handshake", Icon: HandshakeIcon },
+  { name: "Hammer", Icon: HammerIcon },
+  { name: "SealCheck", Icon: SealCheckIcon },
+  { name: "Truck", Icon: TruckIcon },
+];
 
-function Placeholder({ label, tall = false }: { label: string; tall?: boolean }) {
-  return (
-    <div
-      className={`flex items-end rounded-xl border border-line p-3 ${tall ? "h-72 md:h-96" : "h-40"}`}
-      style={{
-        background:
-          "repeating-linear-gradient(100deg, var(--ax-wood) 0 14px, color-mix(in srgb, var(--ax-wood) 82%, var(--ax-bg)) 14px 30px)",
-      }}
-    >
-      <span className="rounded bg-surface px-2 py-1 text-xs text-muted">{label}</span>
-    </div>
-  );
-}
+const pallets = [
+  { type: "two-way", name: "2 way" },
+  { type: "four-way", name: "4 way" },
+  { type: "euro", name: "Euro size" },
+  { type: "custom", name: "Custom" },
+] as const;
 
-export default function Home() {
+const sampleRows: StockRow[] = [
+  { size: "00 x 000", length: "0000", quantity: "00", grade: "Sample" },
+  { size: "00 x 000", length: stock.lengthOnRequest, quantity: "00", grade: "Sample" },
+  { size: "00 x 000", length: "0000", quantity: "", grade: "Sample" },
+].map((row, index) => ({
+  ...row,
+  id: `sample-${index}`,
+  label: `Sample row ${index + 1}`,
+  askHref: "#form",
+  whatsappHref: "#stock-table",
+}));
+
+const fields = enquiryForm.fields;
+
+export default function ComponentSheet() {
   return (
     <main className="font-body">
-      <header className="sticky top-0 z-40 border-b border-line bg-bg/95 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-          <span className="heading text-2xl">AriMex</span>
-          <ul className="hidden gap-6 text-sm md:flex">
-            {["Products", "Pallets", "Process", "About", "Contact"].map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} className="hover:text-accent">{l}</a>
-              </li>
-            ))}
-          </ul>
-          <a href="#contact" className="rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-on-cta">
-            Get a quote
-          </a>
-        </nav>
+      <header className="border-b border-line">
+        <Container className="flex flex-wrap items-baseline justify-between gap-4 py-6">
+          <Wordmark className="text-h3" />
+          <div className="text-small text-muted">
+            <h1 className="text-h3">Component sheet</h1>
+            <p>Phase 2 review. Alt T for palettes, Alt F for fonts, Alt H for the panel.</p>
+          </div>
+        </Container>
       </header>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 md:grid-cols-2 md:px-6 md:py-24">
-        <div>
-          <p className="mb-3 text-sm font-semibold tracking-wide text-accent uppercase">Chennai, made to order</p>
-          <h1 className="text-4xl md:text-6xl">Pine, spruce and wooden pallets built to your load</h1>
-          <p className="mt-5 max-w-prose text-lg text-muted">
-            Tell us the size, quantity and delivery city. We quote, build and dispatch.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="rounded-lg bg-cta px-5 py-3 font-semibold text-on-cta">Request a quote</a>
-            <a href="#contact" className="rounded-lg border border-ink px-5 py-3 font-semibold">WhatsApp us</a>
-          </div>
-        </div>
-        <Placeholder label="Hero video or stacked lumber photo" tall />
-      </section>
-
-      <section className="border-y border-line bg-surface">
-        <ul className="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-2 px-4 py-4 text-sm font-semibold md:px-6">
-          {["Made to order", "All pallet types", "Custom sizes", "Chennai based"].map((t) => (
-            <li key={t}>{t}</li>
+      <Section id="tokens" heading="Colour tokens" intro="Every palette defines all of these. Switch palettes to compare.">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+          {swatches.map((swatch) => (
+            <li key={swatch.token}>
+              <div className={`h-16 rounded-md border border-line ${swatch.className}`} />
+              <p className="mt-1.5 text-label text-muted">{swatch.token}</p>
+            </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
-      <section id="products" className="mx-auto max-w-6xl px-4 py-16 md:px-6">
-        <h2 className="text-3xl md:text-4xl">Three products, done properly</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {products.map((p) => (
-            <article key={p.name} className="overflow-hidden rounded-2xl border border-line bg-surface">
-              <Placeholder label={`${p.name} photo`} />
-              <div className="p-5">
-                <h3 className="text-2xl">{p.name}</h3>
-                <p className="mt-2 text-muted">{p.line}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-full bg-band px-3 py-1 text-xs font-semibold text-on-band">{t}</span>
-                  ))}
-                </div>
-                <a href="#contact" className="mt-5 inline-block font-semibold text-accent underline underline-offset-4">
-                  Ask for a price
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="process" className="on-band bg-band text-on-band">
-        <div className="mx-auto max-w-6xl px-4 py-16 md:px-6">
-          <h2 className="text-3xl md:text-4xl">How ordering works</h2>
-          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-            {steps.map((s, i) => (
-              <li key={s} className="rounded-xl border border-current/25 p-4">
-                <span className="heading text-3xl text-on-band">0{i + 1}</span>
-                <p className="mt-2 font-semibold">{s}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-5 md:px-6">
-        <div className="md:col-span-3">
-          <h2 className="text-3xl md:text-4xl">Request a quote</h2>
-          <form className="mt-6 grid gap-4 sm:grid-cols-2">
-            {["Name", "Phone", "Product", "Quantity", "Size", "Delivery city"].map((f) => (
-              <label key={f} className="grid gap-1 text-sm font-semibold">
-                {f}
-                <input className="rounded-lg border border-line bg-surface px-3 py-2.5 font-normal text-ink" />
-              </label>
-            ))}
-            <label className="grid gap-1 text-sm font-semibold sm:col-span-2">
-              Message
-              <textarea rows={4} className="rounded-lg border border-line bg-surface px-3 py-2.5 font-normal text-ink" />
-            </label>
-            <button type="button" className="rounded-lg bg-cta px-5 py-3 font-semibold text-on-cta sm:col-span-2 sm:justify-self-start">
-              Send enquiry
-            </button>
-          </form>
-        </div>
-        <aside className="rounded-2xl border border-line bg-surface p-6 md:col-span-2">
-          <h3 className="text-2xl">Amirtham Imports and Exports</h3>
-          <p className="mt-3 text-muted">No 36 A, Appavu Street, Alandur, Chennai 600016</p>
-          <p className="mt-3">
-            <a href="tel:+917550130234" className="font-semibold text-accent">+91 75501 30234</a>
+      <Section id="type" ground="surface" heading="Type scale" intro="Headings scale with the viewport. Body text stays at 17px.">
+        <div className="grid gap-6">
+          <p className="heading text-display">Pine, spruce and pallets</p>
+          <p className="heading text-h2">Section heading, h2</p>
+          <p className="heading text-h3">Card heading, h3</p>
+          <p className="max-w-prose text-lead text-muted">Lead text introduces a section in one or two plain sentences.</p>
+          <p className="max-w-prose">
+            Body text is set for long reading on low cost phones. Line length stays near 70 characters on wide screens.
           </p>
-          <p className="mt-1">amirthamtrades@gmail.com</p>
-        </aside>
-      </section>
-
-      <footer className="on-band bg-band text-on-band">
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-4 px-4 py-8 text-sm md:px-6">
-          <span className="heading text-xl text-on-band">AriMex</span>
-          <span>Amirtham Imports and Exports, Chennai</span>
+          <p className="text-small text-muted">Small text for hints and secondary details.</p>
+          <p className="text-label font-semibold tracking-wider text-accent uppercase">Label text</p>
         </div>
-      </footer>
+      </Section>
+
+      <Section id="actions" heading="Buttons, links and badges" intro="Tab through to check the focus ring.">
+        <div className="flex flex-wrap items-center gap-4">
+          <Button href="#form">Request a quote</Button>
+          <Button href="#actions" variant="secondary" newTab>
+            <WhatsappLogoIcon aria-hidden="true" size={20} />
+            Chat on WhatsApp
+          </Button>
+          <Button disabled>Disabled</Button>
+          <TextLink href="#form">Ask for a price</TextLink>
+          <Badge>Made to order</Badge>
+          <Badge>Custom sizes</Badge>
+        </div>
+      </Section>
+
+      <Section id="band" ground="band" heading="On the band" intro="The same components on a band ground. Links and focus use the band text colour here.">
+        <div className="flex flex-wrap items-center gap-4">
+          <Button href="#form">Request a quote</Button>
+          <Button href="#band" variant="secondary">
+            <WhatsappLogoIcon aria-hidden="true" size={20} />
+            Chat on WhatsApp
+          </Button>
+          <TextLink href="#form">Ask for a price</TextLink>
+          <Badge>Made to order</Badge>
+        </div>
+      </Section>
+
+      <Section id="cards" ground="surface" heading="Cards" intro="Cards sit on bg or surface grounds, never on the band.">
+        <ul className="grid gap-6 md:grid-cols-3">
+          {["Pine", "Spruce", "Wooden pallets"].map((name) => (
+            <Card key={name} as="li">
+              <div className="aspect-[4/3] bg-wood/40" />
+              <div className="grid gap-3 p-5">
+                <h3 className="text-h3">{name}</h3>
+                <p className="text-muted">Short description of the product and its common uses.</p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge>Made to order</Badge>
+                </div>
+                <TextLink href="#form">Ask for a price</TextLink>
+              </div>
+            </Card>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="form" heading="Form fields" intro="Default, hint, error, select, textarea and disabled states.">
+        <form className="grid max-w-3xl gap-5 sm:grid-cols-2">
+          <TextField name="name" label={fields.name.label} required autoComplete="name" />
+          <TextField name="company" label={fields.company.label} hint={fields.company.hint} autoComplete="organization" />
+          <TextField name="phone" label={fields.phone.label} hint={fields.phone.hint} type="tel" required autoComplete="tel" />
+          <TextField
+            name="email"
+            label={fields.email.label}
+            hint={fields.email.hint}
+            type="email"
+            autoComplete="email"
+            defaultValue="name@"
+            error={enquiryForm.errors.email}
+          />
+          <SelectField
+            name="product"
+            label={fields.product.label}
+            placeholder={fields.product.placeholder}
+            options={productOptions}
+            required
+          />
+          <TextField name="city" label={fields.city.label} disabled />
+          <div className="sm:col-span-2">
+            <TextField name="message" label={fields.message.label} hint={fields.message.hint} multiline />
+          </div>
+          <div className="sm:col-span-2">
+            <Button type="submit">{enquiryForm.submit}</Button>
+          </div>
+        </form>
+      </Section>
+
+      <Section id="stock-table" ground="surface" heading="Stock table" intro="Sample rows for layout only. A table on wide screens, cards on narrow screens.">
+        <StockTable
+          heading={stock.tables.pine}
+          headingId="sample-stock-heading"
+          columns={{ ...stock.columns, actions: "Enquire" }}
+          rows={sampleRows}
+          askLabel={stock.askAction}
+          whatsappLabel={stock.whatsappAction}
+        />
+      </Section>
+
+      <Section id="pallets" heading="Pallet diagrams" intro="Drawn from scratch with a 1.5px stroke to match the regular icon weight.">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pallets.map((pallet) => (
+            <Card key={pallet.type} as="li" className="p-5">
+              <PalletDiagram type={pallet.type} className="w-full text-heading" />
+              <p className="mt-3 font-semibold text-heading">{pallet.name}</p>
+            </Card>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="icons" ground="surface" heading="Icons" intro="Phosphor, regular weight. Shown at 28px.">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+          {icons.map(({ name, Icon }) => (
+            <li key={name} className="grid justify-items-center gap-2 rounded-md border border-line p-4 text-center">
+              <Icon aria-hidden="true" size={28} className="text-heading" />
+              <span className="text-label text-muted">{name}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="surfaces" heading="Radius and shadow">
+        <div className="grid gap-6 sm:grid-cols-3">
+          <div className="rounded-sm border border-line bg-surface p-5 text-small">rounded-sm, controls inside cards</div>
+          <div className="rounded-md bg-surface p-5 text-small shadow-card">rounded-md, shadow-card</div>
+          <div className="rounded-lg bg-surface p-5 text-small shadow-raised">rounded-lg, shadow-raised</div>
+        </div>
+      </Section>
     </main>
   );
 }
