@@ -23,11 +23,7 @@ export default function Products() {
               <ImagePlaceholder className={`aspect-16/10 md:aspect-auto ${flipped ? "md:order-last" : ""}`} />
               <div className="flex flex-col gap-7 p-6 sm:p-8 lg:p-12">
                 <div>
-                  <p className={`flex items-center gap-3 ${subheading}`}>
-                    <span className="tabular-nums">{String(index + 1).padStart(2, "0")}</span>
-                    <span aria-hidden="true" className="h-px w-8 bg-current" />
-                    {card.category}
-                  </p>
+                  <p className={subheading}>{card.category}</p>
                   <h3 className="mt-4 text-h2">{card.name}</h3>
                   <p className="mt-4 max-w-prose text-lead text-muted">{card.summary}</p>
                 </div>
