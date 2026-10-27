@@ -31,17 +31,16 @@ export default function ThemeSwitcher() {
     (kind: "palette" | "font", id: string) => {
       const root = document.documentElement;
       root.classList.add("theme-anim");
+      const choice = (kind === "palette" ? palettes : fontPairings).find((x) => x.id === id);
+      if (!choice) return;
       if (kind === "palette") {
         root.dataset.theme = id;
         localStorage.setItem(storageKeys.palette, id);
-        const p = palettes.find((x) => x.id === id)!;
-        announce(p.label, p.note);
       } else {
         root.dataset.font = id;
         localStorage.setItem(storageKeys.font, id);
-        const f = fontPairings.find((x) => x.id === id)!;
-        announce(f.label, f.note);
       }
+      announce(choice.label, choice.note);
       window.setTimeout(() => root.classList.remove("theme-anim"), 400);
       force((n) => n + 1);
     },

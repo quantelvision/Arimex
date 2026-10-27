@@ -7,7 +7,7 @@ import "@fontsource-variable/literata";
 import "@fontsource-variable/public-sans";
 import "@fontsource-variable/archivo/wdth.css";
 import "./globals.css";
-import ThemeSwitcher from "@/theme/ThemeSwitcher";
+import ThemeSwitcher from "@/theme/theme-switcher";
 import { buildThemeCss, defaultFont, defaultPalette, noFlashScript, switcherEnabled } from "@/theme/themes";
 
 export const metadata: Metadata = {
