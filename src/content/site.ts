@@ -24,6 +24,7 @@ export const meta = {
 };
 
 export const nav = {
+  label: "Main",
   skipLink: "Skip to content",
   links: [
     { label: "Products", href: "#products" },
@@ -118,12 +119,13 @@ export const stock = {
   locationLabel: "Location",
   availabilityNote: "Stock moves quickly. We confirm availability before you place an order.",
   tables: { pine: "Pine", spruce: "Spruce" },
-  columns: { size: "Size (mm)", length: "Length (mm)", quantity: "Quantity (m³)", grade: "Grade" },
-  lengthOnRequest: "On request",
+  columns: { size: "Size (mm)", length: "Length (mm)", quantity: "Quantity (m³)", grade: "Grade", actions: "Enquire" },
+  onRequest: "On request",
   askAction: "Ask about this size",
   whatsappAction: "WhatsApp",
   otherSizes: "Need a size that is not listed? Ask us and we will check.",
   emptyState: "Our stock list is being updated. Tell us the size you need and we will check.",
+  emptyAction: "Ask about a size",
 };
 
 export const pallets = {
@@ -151,7 +153,7 @@ export const pallets = {
       name: "Custom",
       description: "Any length, width and height, built to your drawing, a photo or a sample pallet.",
     },
-  ],
+  ] as const,
   briefHeading: "What to tell us",
   brief: [
     "Pallet size: length, width and height",
@@ -169,30 +171,37 @@ export const pallets = {
 export const ordering = {
   heading: "How ordering works",
   intro: "Six steps from your first message to delivery.",
+  stepLabel: "Step",
   steps: [
     {
+      id: "enquiry",
       title: "Enquiry",
       text: "Send the product, size, quantity and delivery city by form, phone or WhatsApp.",
     },
     {
+      id: "quote",
       title: "Quote",
       // TODO(client): what a quote includes, for example transport and GST
       text: "We reply with a price and the time the order will take.",
     },
     {
+      id: "confirm",
       title: "Confirm",
       // TODO(client): payment terms
       text: "You confirm the order and the payment terms. Work starts only after this.",
     },
     {
+      id: "manufacture",
       title: "Manufacture",
       text: "Pallets are built to your specification. Timber is prepared to the sizes you ordered.",
     },
     {
+      id: "quality-check",
       title: "Quality check",
       text: "We check sizes and build quality against your order before dispatch.",
     },
     {
+      id: "dispatch",
       title: "Dispatch",
       // TODO(client): delivery area and who arranges transport (open question 1)
       text: "Your order leaves for the delivery city in your quote.",
@@ -323,9 +332,9 @@ export const contact = {
 export const enquiryForm = {
   fields: {
     name: { label: "Name" },
-    company: { label: "Company", hint: "Optional" },
+    company: { label: "Company" },
     phone: { label: "Phone", hint: "Mobile or landline, with or without +91" },
-    email: { label: "Email", hint: "Optional" },
+    email: { label: "Email" },
     product: { label: "Product", placeholder: "Choose a product" },
     quantity: { label: "Quantity", hint: "Pieces, pallets or cubic metres" },
     size: { label: "Size or specification", hint: "For example 1200 x 1000 mm, 4 way, 1000 kg load" },
@@ -333,6 +342,7 @@ export const enquiryForm = {
     message: { label: "Message", hint: "Anything else we should know" },
     honeypot: { label: "Leave this field empty" },
   },
+  optionalLabel: "(optional)",
   requiredNote: "Name, phone and product are required.",
   submit: "Send enquiry",
   sending: "Sending",
@@ -359,6 +369,7 @@ export const whatsappMessages = {
 };
 
 export const footer = {
+  navLabel: "Footer",
   quickLinksHeading: "Quick links",
   gstinLabel: "GSTIN",
   brandLine: "AriMex is a brand of Amirtham Imports and Exports.",
