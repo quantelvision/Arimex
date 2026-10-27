@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated from src/content/stock.xlsx
+/src/content/stock.generated.json
+
 # local context
 /docs
 /CLAUDE.md
