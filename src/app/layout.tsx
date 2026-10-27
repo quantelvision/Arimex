@@ -7,12 +7,13 @@ import "@fontsource-variable/literata";
 import "@fontsource-variable/public-sans";
 import "@fontsource-variable/archivo/wdth.css";
 import "./globals.css";
+import { meta } from "@/content/site";
 import ThemeSwitcher from "@/theme/theme-switcher";
 import { buildThemeCss, defaultFont, defaultPalette, noFlashScript, switcherEnabled } from "@/theme/themes";
 
 export const metadata: Metadata = {
-  title: "AriMex | Pine, Spruce and Wooden Pallets, Chennai",
-  description: "Pine and spruce timber, and wooden pallets made to order. Amirtham Imports and Exports, Alandur, Chennai.",
+  title: meta.title,
+  description: meta.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
