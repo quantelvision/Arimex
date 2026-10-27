@@ -2,6 +2,7 @@ export type Palette = {
   id: string;
   label: string;
   note: string;
+  scheme: "light" | "dark";
   tokens: {
     bg: string;
     surface: string;
@@ -34,6 +35,7 @@ export const palettes: Palette[] = [
     id: "client",
     label: "A. Client palette",
     note: "Pink base, deep brown and black cherry as requested",
+    scheme: "light",
     tokens: {
       bg: "#FCD5CE",
       surface: "#FFF1EE",
@@ -56,6 +58,7 @@ export const palettes: Palette[] = [
     id: "blush",
     label: "B. Blush and timber",
     note: "Light base, client pink as the signature band",
+    scheme: "light",
     tokens: {
       bg: "#FDF3EE",
       surface: "#FFFFFF",
@@ -78,6 +81,7 @@ export const palettes: Palette[] = [
     id: "dark",
     label: "C. Dark timber",
     note: "Black cherry ground, pink and wood as highlights",
+    scheme: "dark",
     tokens: {
       bg: "#240C0E",
       surface: "#341416",
@@ -100,6 +104,7 @@ export const palettes: Palette[] = [
     id: "pine",
     label: "D. Natural pine",
     note: "Neutral fallback with no pink, for comparison",
+    scheme: "light",
     tokens: {
       bg: "#F4EDE1",
       surface: "#FBF7F0",
@@ -160,7 +165,7 @@ export function buildThemeCss(): string {
   const paletteBlocks = palettes.map((p) => {
     const vars = Object.entries(p.tokens)
       .map(([k, v]) => `--ax-${kebab(k)}:${v};`)
-      .join("");
+      .join("") + `color-scheme:${p.scheme};`;
     const sel = p.id === defaultPalette ? `:root,[data-theme="${p.id}"]` : `[data-theme="${p.id}"]`;
     return `${sel}{${vars}}`;
   });
