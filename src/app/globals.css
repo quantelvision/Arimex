@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant on-band (&:where(.on-band, .on-band *));
+@custom-variant on-overlay (&:where(.on-overlay, .on-overlay *));
 
 @theme {
   --color-*: initial;
@@ -47,6 +48,8 @@
   --color-line: var(--ax-line);
   --color-field: var(--ax-field);
   --color-error: var(--ax-error);
+  --color-overlay: var(--ax-overlay);
+  --color-on-overlay: var(--ax-on-overlay);
   --font-heading: var(--ax-font-heading);
   --font-body: var(--ax-font-body);
   --shadow-card: 0 1px 2px color-mix(in srgb, var(--ax-shadow) 10%, transparent),
@@ -91,6 +94,10 @@ h1, h2, h3, h4, .heading {
 /* accent falls below 3:1 on the band in the client and pine palettes */
 .on-band :focus-visible {
   outline-color: var(--ax-on-band);
+}
+
+.on-overlay :focus-visible {
+  outline-color: var(--ax-on-overlay);
 }
 
 }

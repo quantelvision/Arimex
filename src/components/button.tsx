@@ -4,9 +4,10 @@ const base =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants = {
-  primary: "bg-cta text-on-cta hover:bg-cta/85 on-band:bg-on-band on-band:text-band on-band:hover:bg-on-band/85",
+  primary:
+    "bg-cta text-on-cta hover:bg-cta/85 on-band:bg-on-band on-band:text-band on-band:hover:bg-on-band/85 on-overlay:bg-on-overlay on-overlay:text-overlay on-overlay:hover:bg-on-overlay/85",
   secondary:
-    "border border-field text-ink hover:bg-ink/5 on-band:border-on-band on-band:text-on-band on-band:hover:bg-on-band/10",
+    "border border-field text-ink hover:bg-ink/5 on-band:border-on-band on-band:text-on-band on-band:hover:bg-on-band/10 on-overlay:border-on-overlay on-overlay:text-on-overlay on-overlay:hover:bg-on-overlay/10",
 };
 
 type ButtonProps = {

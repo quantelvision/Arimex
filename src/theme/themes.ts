@@ -19,6 +19,8 @@ export type Palette = {
     field: string;
     error: string;
     shadow: string;
+    overlay: string;
+    onOverlay: string;
   };
 };
 
@@ -52,6 +54,8 @@ export const palettes: Palette[] = [
       field: "#A0665A",
       error: "#A3121B",
       shadow: "#410200",
+      overlay: "#240C0E",
+      onOverlay: "#FFF1EE",
     },
   },
   {
@@ -75,6 +79,8 @@ export const palettes: Palette[] = [
       field: "#A07A6E",
       error: "#B3261E",
       shadow: "#410200",
+      overlay: "#240C0E",
+      onOverlay: "#FFFFFF",
     },
   },
   {
@@ -98,6 +104,8 @@ export const palettes: Palette[] = [
       field: "#A0766E",
       error: "#FF9C8F",
       shadow: "#000000",
+      overlay: "#160708",
+      onOverlay: "#FCD5CE",
     },
   },
   {
@@ -121,6 +129,8 @@ export const palettes: Palette[] = [
       field: "#8C7C68",
       error: "#A8261B",
       shadow: "#2B1D12",
+      overlay: "#1E140C",
+      onOverlay: "#FBF7F0",
     },
   },
 ];
