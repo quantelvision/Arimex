@@ -61,6 +61,7 @@ html {
   color: var(--ax-ink);
   font-family: var(--ax-font-body);
   -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
 }
 
 body {
