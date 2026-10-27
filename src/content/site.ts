@@ -40,9 +40,10 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "Amirtham Imports and Exports",
-  heading: "Pine and spruce timber, and wooden pallets made to order in Chennai",
-  lead: "Send us the product, size and quantity you need. We reply with a quote, and start work once you confirm.",
+  eyebrow: "Pine, spruce and wooden pallets in Chennai",
+  // TODO(client): heading and lead match the reference site word for word, and the sustainability and legal harvesting claims need confirmation (open question 13)
+  heading: "Sustainable Timber, Responsibly Sourced",
+  lead: "Legally harvested wood products backed by environmental stewardship",
   quoteAction: "Request a quote",
   whatsappAction: "Chat on WhatsApp",
   // TODO(client): replace with a photo or video of AriMex stock (open question 9)
