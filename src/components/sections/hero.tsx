@@ -7,14 +7,20 @@ import { whatsappUrl } from "@/lib/whatsapp";
 
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="top-heading" className="bg-bg">
-      <Container className="grid items-center gap-10 py-12 md:grid-cols-2 md:py-20 lg:gap-16">
-        <div>
-          <p className="text-label font-semibold tracking-wider text-accent uppercase">{hero.eyebrow}</p>
-          <h1 id="top-heading" className="mt-3 text-display">
+    <section
+      id="top"
+      aria-labelledby="top-heading"
+      className="flex min-h-[max(34rem,calc(100svh-4.0625rem))] flex-col bg-bg p-2 sm:p-3"
+    >
+      <div className="on-overlay relative isolate flex flex-1 items-end overflow-hidden rounded-lg text-on-overlay">
+        <ImagePlaceholder className="absolute inset-0 -z-10" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-t from-overlay/90 via-overlay/65 to-overlay/25" />
+        <Container className="py-12 md:py-20">
+          <p className="text-label font-semibold tracking-wider uppercase">{hero.eyebrow}</p>
+          <h1 id="top-heading" className="mt-4 max-w-4xl text-display text-on-overlay">
             {hero.heading}
           </h1>
-          <p className="mt-5 max-w-prose text-lead text-muted">{hero.lead}</p>
+          <p className="mt-5 max-w-2xl text-lead">{hero.lead}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="#contact">{hero.quoteAction}</Button>
             <Button href={whatsappUrl(whatsappMessages.general)} variant="secondary" newTab>
@@ -22,9 +28,8 @@ export default function Hero() {
               {hero.whatsappAction}
             </Button>
           </div>
-        </div>
-        <ImagePlaceholder className="aspect-4/3 rounded-lg md:aspect-4/5" />
-      </Container>
+        </Container>
+      </div>
     </section>
   );
 }
