@@ -88,21 +88,21 @@ export default function ThemeSwitcher() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-cta px-5 py-3 text-on-cta shadow-lg">
-          <p className="font-body text-sm font-semibold">{toast.title}</p>
-          <p className="font-body text-xs opacity-90">{toast.note}</p>
+        <div className="fixed bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-cta px-5 py-3 text-on-cta shadow-raised">
+          <p className="font-body text-small font-semibold">{toast.title}</p>
+          <p className="font-body text-label opacity-90">{toast.note}</p>
         </div>
       )}
 
       {panel && (
-        <div className="fixed right-4 bottom-24 z-50 w-80 rounded-xl border border-line bg-surface p-4 font-body text-ink shadow-xl">
-          <p className="mb-2 text-xs font-semibold tracking-wide text-accent uppercase">Palette</p>
+        <div className="fixed right-4 bottom-24 z-50 w-80 rounded-lg border border-line bg-surface p-4 font-body text-ink shadow-raised">
+          <p className="mb-2 text-label font-semibold tracking-wide text-accent uppercase">Palette</p>
           <ul className="mb-4 space-y-1">
             {palettes.map((p, i) => (
               <li key={p.id}>
                 <button
                   onClick={() => apply("palette", p.id)}
-                  className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm ${activePalette === p.id ? "bg-band text-on-band" : ""}`}
+                  className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-small ${activePalette === p.id ? "bg-band text-on-band" : ""}`}
                 >
                   <span className="flex overflow-hidden rounded-sm border border-line">
                     {[p.tokens.bg, p.tokens.heading, p.tokens.accent, p.tokens.wood].map((c) => (
@@ -110,28 +110,28 @@ export default function ThemeSwitcher() {
                     ))}
                   </span>
                   <span className="flex-1">{p.label}</span>
-                  <kbd className="text-xs opacity-70">Alt {i + 1}</kbd>
+                  <kbd className="text-label opacity-70">Alt {i + 1}</kbd>
                 </button>
               </li>
             ))}
           </ul>
-          <p className="mb-2 text-xs font-semibold tracking-wide text-accent uppercase">Fonts</p>
+          <p className="mb-2 text-label font-semibold tracking-wide text-accent uppercase">Fonts</p>
           <ul className="mb-4 space-y-1">
             {fontPairings.map((f, i) => (
               <li key={f.id}>
                 <button
                   onClick={() => apply("font", f.id)}
-                  className={`flex w-full items-center rounded-md px-2 py-1.5 text-left text-sm ${activeFont === f.id ? "bg-band text-on-band" : ""}`}
+                  className={`flex w-full items-center rounded-md px-2 py-1.5 text-left text-small ${activeFont === f.id ? "bg-band text-on-band" : ""}`}
                 >
                   <span className="flex-1" style={{ fontFamily: f.heading.family, fontStretch: f.heading.stretch }}>
                     {f.label}
                   </span>
-                  <kbd className="text-xs opacity-70">Alt Shift {i + 1}</kbd>
+                  <kbd className="text-label opacity-70">Alt Shift {i + 1}</kbd>
                 </button>
               </li>
             ))}
           </ul>
-          <p className="text-xs text-muted">Alt T palettes, Alt F fonts, add Shift to go back. Alt R resets. Alt H hides this.</p>
+          <p className="text-label text-muted">Alt T palettes, Alt F fonts, add Shift to go back. Alt R resets. Alt H hides this.</p>
         </div>
       )}
     </>

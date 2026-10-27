@@ -15,6 +15,9 @@ export type Palette = {
     onCta: string;
     wood: string;
     line: string;
+    field: string;
+    error: string;
+    shadow: string;
   };
 };
 
@@ -44,6 +47,9 @@ export const palettes: Palette[] = [
       onCta: "#FCD5CE",
       wood: "#C98B5E",
       line: "#EDB4A8",
+      field: "#A0665A",
+      error: "#A3121B",
+      shadow: "#410200",
     },
   },
   {
@@ -63,6 +69,9 @@ export const palettes: Palette[] = [
       onCta: "#FFFFFF",
       wood: "#C98B5E",
       line: "#F0D9CF",
+      field: "#A07A6E",
+      error: "#B3261E",
+      shadow: "#410200",
     },
   },
   {
@@ -82,6 +91,9 @@ export const palettes: Palette[] = [
       onCta: "#240C0E",
       wood: "#C98B5E",
       line: "#4A2226",
+      field: "#A0766E",
+      error: "#FF9C8F",
+      shadow: "#000000",
     },
   },
   {
@@ -101,6 +113,9 @@ export const palettes: Palette[] = [
       onCta: "#FFFFFF",
       wood: "#C98B5E",
       line: "#E2D6C3",
+      field: "#8C7C68",
+      error: "#A8261B",
+      shadow: "#2B1D12",
     },
   },
 ];
