@@ -162,7 +162,7 @@ export const fontPairings: FontPairing[] = [
   },
 ];
 
-export const defaultPalette = "client";
+export const defaultPalette = "pine";
 export const defaultFont = "sturdy";
 
 export const switcherEnabled = process.env.NEXT_PUBLIC_THEME_SWITCHER !== "off";
