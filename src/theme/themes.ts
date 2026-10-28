@@ -411,12 +411,30 @@ export const fontPairings: FontPairing[] = [
   },
 ];
 
+// neutral colours for the theme engine window, so it reads the same over every palette
+export const engineUi = {
+  surface: "#FFFFFF",
+  subtle: "#F4F4F5",
+  line: "#E4E4E7",
+  text: "#18181B",
+  muted: "#52525B",
+  focus: "#2563EB",
+  font: sans,
+};
+
+export const roundness = { initial: 1, min: 0, max: 2, step: 0.1 };
+
 export const defaultPalette = "pine";
 export const defaultFont = "sturdy";
 
 export const switcherEnabled = process.env.NEXT_PUBLIC_THEME_SWITCHER !== "off";
 
-export const storageKeys = { palette: "arimex-palette", font: "arimex-font" };
+export const storageKeys = {
+  palette: "arimex-palette",
+  font: "arimex-font",
+  roundness: "arimex-roundness",
+  position: "arimex-engine-position",
+};
 
 const kebab = (s: string) => s.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`);
 
@@ -440,8 +458,12 @@ export function buildThemeCss(): string {
     return `${sel}{${vars}}`;
   });
 
+  const engineVars = Object.entries(engineUi)
+    .map(([k, v]) => `--ax-ui-${k}:${v};`)
+    .join("");
+  const shared = `:root{--ax-round:${roundness.initial};${engineVars}}`;
 
-  return [...paletteBlocks, ...fontBlocks].join("\n");
+  return [shared, ...paletteBlocks, ...fontBlocks].join("\n");
 }
 
 export function noFlashScript(): string {
@@ -450,5 +472,7 @@ export function noFlashScript(): string {
   return `(function(){try{var d=document.documentElement,q=new URLSearchParams(location.search),P=${p},F=${f};
 var t=q.get("theme")||localStorage.getItem("${storageKeys.palette}");
 var n=q.get("font")||localStorage.getItem("${storageKeys.font}");
-if(P.indexOf(t)>-1)d.dataset.theme=t;if(F.indexOf(n)>-1)d.dataset.font=n;}catch(e){}})();`;
+var r=parseFloat(q.get("round")||localStorage.getItem("${storageKeys.roundness}"));
+if(P.indexOf(t)>-1)d.dataset.theme=t;if(F.indexOf(n)>-1)d.dataset.font=n;
+if(r>=${roundness.min}&&r<=${roundness.max})d.style.setProperty("--ax-round",r);}catch(e){}})();`;
 }

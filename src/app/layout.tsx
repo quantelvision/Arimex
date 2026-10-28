@@ -20,7 +20,7 @@ import "@fontsource-variable/cormorant";
 import "@fontsource-variable/manrope";
 import "./globals.css";
 import { meta } from "@/content/site";
-import ThemeSwitcher from "@/theme/theme-switcher";
+import ThemeEngine from "@/theme/theme-engine";
 import { buildThemeCss, defaultFont, defaultPalette, noFlashScript, switcherEnabled } from "@/theme/themes";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-bg text-ink antialiased">
         {children}
-        {switcherEnabled && <ThemeSwitcher />}
+        {switcherEnabled && <ThemeEngine />}
         <Analytics />
         <SpeedInsights />
       </body>
