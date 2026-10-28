@@ -5,7 +5,7 @@ import { faq } from "@/content/site";
 export default function Faq() {
   return (
     <Section id="faq" ground="surface" heading={faq.heading}>
-      <div className="max-w-3xl border-t border-line">
+      <div data-reveal className="max-w-3xl border-t border-line">
         {faq.entries.map((entry) => (
           <details key={entry.question} className="group border-b border-line">
             <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 text-lead font-semibold text-heading [&::-webkit-details-marker]:hidden">

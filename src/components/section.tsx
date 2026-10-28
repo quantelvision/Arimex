@@ -22,10 +22,14 @@ export default function Section({ id, heading, intro, ground = "bg", children }:
   return (
     <section id={id} aria-labelledby={headingId} className={grounds[ground]}>
       <Container className="py-section">
-        <h2 id={headingId} className="text-h2">
+        <h2 id={headingId} data-reveal className="text-h2">
           {heading}
         </h2>
-        {intro && <p className="mt-4 max-w-prose text-lead text-muted on-band:text-on-band">{intro}</p>}
+        {intro && (
+          <p data-reveal className="mt-4 max-w-prose text-lead text-muted on-band:text-on-band">
+            {intro}
+          </p>
+        )}
         <div className="mt-10 md:mt-12">{children}</div>
       </Container>
     </section>

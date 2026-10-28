@@ -20,7 +20,7 @@ const cell = "border border-field px-2.5 py-3.5 sm:px-6 sm:py-5";
 
 export default function StockTable({ heading, headingId, columns, rows, enquireLabel }: StockTableProps) {
   return (
-    <div className="min-w-0">
+    <div data-reveal className="min-w-0">
       <h3 id={headingId} className="text-h3">
         {heading}
       </h3>

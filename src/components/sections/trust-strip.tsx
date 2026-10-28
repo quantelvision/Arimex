@@ -17,7 +17,7 @@ export default function TrustStrip() {
           {trustPoints.map((point) => {
             const PointIcon = pointIcons[point.id];
             return (
-              <li key={point.id} className="flex items-center gap-2.5">
+              <li key={point.id} data-reveal className="flex items-center gap-2.5">
                 <PointIcon aria-hidden="true" size={22} className="shrink-0 text-accent" />
                 {point.text}
               </li>

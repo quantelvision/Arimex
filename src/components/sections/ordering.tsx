@@ -25,7 +25,7 @@ export default function Ordering() {
         {ordering.steps.map((step, index) => {
           const StepIcon = stepIcons[step.id];
           return (
-            <li key={step.id} className="rounded-lg border border-on-band/25 bg-band p-6">
+            <li key={step.id} data-reveal className="rounded-lg border border-on-band/25 bg-band p-6">
               <div className="flex items-center justify-between gap-4">
                 <StepIcon aria-hidden="true" size={32} />
                 <span className="text-label font-semibold tracking-wider uppercase">

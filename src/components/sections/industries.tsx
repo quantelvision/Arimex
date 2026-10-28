@@ -23,7 +23,7 @@ export default function Industries() {
         {industries.sectors.map((sector) => {
           const SectorIcon = sectorIcons[sector.id];
           return (
-            <li key={sector.id} className="rounded-lg border border-line bg-bg p-5">
+            <li key={sector.id} data-reveal className="rounded-lg border border-line bg-bg p-5">
               <SectorIcon aria-hidden="true" size={32} className="text-accent" />
               <h3 className="mt-4 text-h3">{sector.name}</h3>
               <p className="mt-2 text-small text-muted">{sector.text}</p>

@@ -19,6 +19,7 @@ export default function Products() {
             <Card
               key={card.id}
               as="li"
+              reveal
               className={`grid md:min-h-120 ${flipped ? "md:grid-cols-[3fr_2fr]" : "md:grid-cols-[2fr_3fr]"}`}
             >
               <div className={`relative aspect-16/10 bg-wood md:aspect-auto ${flipped ? "md:order-last" : ""}`}>

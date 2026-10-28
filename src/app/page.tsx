@@ -6,6 +6,7 @@ import Industries from "@/components/sections/industries";
 import Ordering from "@/components/sections/ordering";
 import Pallets from "@/components/sections/pallets";
 import Products from "@/components/sections/products";
+import RevealObserver from "@/components/reveal-observer";
 import Quality from "@/components/sections/quality";
 import SiteFooter from "@/components/sections/site-footer";
 import SiteHeader from "@/components/sections/site-header";
@@ -38,6 +39,7 @@ export default function Home() {
         label={whatsappMessages.floatingLabel}
         hideOverId={enquiryFormId}
       />
+      <RevealObserver />
     </>
   );
 }
