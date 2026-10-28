@@ -47,7 +47,16 @@ export const hero = {
   quoteAction: "Request a quote",
   whatsappAction: "Chat on WhatsApp",
   // TODO(client): replace with a photo or video of AriMex stock (open question 9)
-  mediaAlt: "Stacked pine boards with warm yellow grain",
+  media: {
+    poster: "/images/hero-poster.jpg",
+    videos: [
+      { src: "/videos/hero.webm", type: "video/webm" },
+      { src: "/videos/hero.mp4", type: "video/mp4" },
+    ],
+    alt: "Stacks of round timber logs in an open timber yard",
+  },
+  pauseVideo: "Pause background video",
+  playVideo: "Play background video",
 };
 
 export const trustPoints = [

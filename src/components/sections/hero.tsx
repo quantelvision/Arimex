@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Container from "@/components/container";
-import ImagePlaceholder from "@/components/image-placeholder";
+import HeroVideo from "@/components/hero-video";
 import { hero, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -12,8 +13,9 @@ export default function Hero() {
       aria-labelledby="top-heading"
       className="flex min-h-[max(34rem,calc(100svh-4.0625rem))] flex-col bg-bg p-2 sm:p-3"
     >
-      <div className="on-overlay relative isolate flex flex-1 items-end overflow-hidden rounded-lg text-on-overlay">
-        <ImagePlaceholder className="absolute inset-0 -z-10" />
+      <div className="on-overlay relative isolate flex flex-1 items-end overflow-hidden rounded-lg bg-overlay text-on-overlay">
+        <Image src={hero.media.poster} alt={hero.media.alt} fill preload sizes="100vw" className="-z-10 object-cover" />
+        <HeroVideo sources={hero.media.videos} pauseLabel={hero.pauseVideo} playLabel={hero.playVideo} />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-t from-overlay/90 via-overlay/65 to-overlay/25" />
         <Container className="py-12 md:py-20">
           <p className="text-label font-semibold tracking-wider uppercase">{hero.eyebrow}</p>
