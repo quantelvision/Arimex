@@ -20,7 +20,7 @@ export default function Products() {
               key={card.id}
               as="li"
               reveal
-              className={`grid md:min-h-120 ${flipped ? "md:grid-cols-[3fr_2fr]" : "md:grid-cols-[2fr_3fr]"}`}
+              className={`group grid md:min-h-120 ${flipped ? "md:grid-cols-[3fr_2fr]" : "md:grid-cols-[2fr_3fr]"}`}
             >
               <div className={`relative aspect-16/10 bg-wood md:aspect-auto ${flipped ? "md:order-last" : ""}`}>
                 <Image
@@ -28,7 +28,7 @@ export default function Products() {
                   alt={card.imageAlt}
                   fill
                   sizes="(min-width: 72rem) 29rem, (min-width: 48rem) 40vw, 100vw"
-                  className="object-cover"
+                  className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-103"
                 />
               </div>
               <div className="flex flex-col gap-7 p-6 sm:p-8 lg:p-12">
