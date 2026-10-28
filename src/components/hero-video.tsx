@@ -22,6 +22,7 @@ function canAutoplay() {
 
 export default function HeroVideo({ sources, pauseLabel, playLabel }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const pausedByVisitor = useRef(false);
   const [started, setStarted] = useState(false);
   const [playing, setPlaying] = useState(false);
 
@@ -37,12 +38,24 @@ export default function HeroVideo({ sources, pauseLabel, playLabel }: HeroVideoP
       if (motion.matches) video.pause();
     };
     motion.addEventListener("change", pauseOnReduce);
-    return () => motion.removeEventListener("change", pauseOnReduce);
+
+    // pause while the hero is off screen to save battery, and resume on return unless the visitor paused it
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) video.pause();
+      else if (!pausedByVisitor.current && !motion.matches) video.play().catch(() => {});
+    });
+    observer.observe(video);
+
+    return () => {
+      motion.removeEventListener("change", pauseOnReduce);
+      observer.disconnect();
+    };
   }, []);
 
   function toggle() {
     const video = videoRef.current;
     if (!video) return;
+    pausedByVisitor.current = !video.paused;
     if (video.paused) video.play().catch(() => {});
     else video.pause();
   }
