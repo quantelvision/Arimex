@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import Container from "./container";
 
+// each ground carries its own background pattern, so neighbouring sections alternate
 const grounds = {
-  bg: "bg-bg",
-  surface: "bg-surface",
-  band: "on-band bg-band text-on-band",
+  bg: "pattern pattern-grain bg-bg",
+  surface: "pattern pattern-planks bg-surface",
+  band: "on-band pattern pattern-rings grain bg-band text-on-band",
 };
 
 type SectionProps = {

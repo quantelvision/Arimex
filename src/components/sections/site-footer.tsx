@@ -31,7 +31,7 @@ export default async function SiteFooter() {
   const year = await currentYear();
 
   return (
-    <footer className="on-band bg-band text-on-band">
+    <footer className="on-band pattern pattern-rings grain bg-band text-on-band">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_1fr_0.8fr] lg:gap-12">
         <div>
           <Wordmark className="text-h2" />
