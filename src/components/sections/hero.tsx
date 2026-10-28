@@ -11,7 +11,7 @@ export default function Hero() {
     <section
       id="top"
       aria-labelledby="top-heading"
-      className="flex min-h-[max(34rem,calc(100svh-4.0625rem))] flex-col bg-bg p-2 sm:p-3"
+      className="flex min-h-[max(34rem,calc(100svh-4rem))] flex-col bg-bg p-2 sm:p-3"
     >
       <div className="on-overlay relative isolate flex flex-1 items-end overflow-hidden rounded-lg bg-overlay text-on-overlay">
         <Image src={hero.media.poster} alt={hero.media.alt} fill preload sizes="100vw" className="-z-10 object-cover" />

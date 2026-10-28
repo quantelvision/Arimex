@@ -6,7 +6,7 @@ import { nav } from "@/content/site";
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg">
+    <header className="header-edge sticky top-0 z-40 bg-bg">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-cta focus:px-4 focus:py-2.5 focus:font-semibold focus:text-on-cta"

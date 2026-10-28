@@ -159,6 +159,27 @@ h1, h2, h3, h4, .heading {
   mix-blend-mode: soft-light;
   opacity: 0.5;
 }
+
+/* header edge: shown at once, or faded in over the end of the hero where scroll driven animation is supported */
+.header-edge::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  height: 1px;
+  pointer-events: none;
+  background: var(--ax-line);
+  box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--ax-shadow) 22%, transparent);
+}
+}
+
+@keyframes header-edge {
+  0%, 80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -171,6 +192,14 @@ h1, h2, h3, h4, .heading {
   [data-reveal="hidden"]:not(:focus-within) {
     opacity: 0;
     transform: translateY(16px);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .header-edge::after {
+      animation: header-edge linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100svh;
+    }
   }
 }
 
