@@ -21,10 +21,10 @@ export default function Home() {
       <SiteHeader />
       <main id="main">
         <Hero />
-        <TrustStrip />
         <Products />
         <StockList />
         <Pallets />
+        <TrustStrip />
         <Ordering />
         <Quality />
         <Industries />
