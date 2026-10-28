@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
+import WhatsappIcon from "./whatsapp-icon";
 
 type WhatsappFloatProps = {
   href: string;
@@ -29,7 +29,7 @@ export default function WhatsappFloat({ href, label, hideOverId }: WhatsappFloat
       hidden={hidden}
       className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 inline-flex size-14 items-center justify-center rounded-full bg-cta text-on-cta shadow-raised ring-2 ring-on-cta hover:bg-cta/85 sm:right-6 sm:bottom-6"
     >
-      <WhatsappLogoIcon aria-hidden="true" size={30} />
+      <WhatsappIcon aria-hidden="true" size={30} />
     </a>
   );
 }

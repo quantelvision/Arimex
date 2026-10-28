@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Container from "@/components/container";
 import HeroVideo from "@/components/hero-video";
+import WhatsappIcon from "@/components/whatsapp-icon";
 import { hero, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="#contact">{hero.quoteAction}</Button>
             <Button href={whatsappUrl(whatsappMessages.general)} variant="secondary" newTab>
-              <WhatsappLogoIcon aria-hidden="true" size={20} />
+              <WhatsappIcon aria-hidden="true" size={20} />
               {hero.whatsappAction}
             </Button>
           </div>

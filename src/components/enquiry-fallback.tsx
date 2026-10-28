@@ -1,7 +1,8 @@
-import { PhoneIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
+import { PhoneIcon } from "@phosphor-icons/react/ssr";
 import { business, contact, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 import Button from "./button";
+import WhatsappIcon from "./whatsapp-icon";
 
 export default function EnquiryFallback({ message }: { message: string }) {
   return (
@@ -13,7 +14,7 @@ export default function EnquiryFallback({ message }: { message: string }) {
           {contact.labels.phone}
         </Button>
         <Button href={whatsappUrl(whatsappMessages.general)} variant="secondary" newTab>
-          <WhatsappLogoIcon aria-hidden="true" size={20} />
+          <WhatsappIcon aria-hidden="true" size={20} />
           {contact.labels.whatsapp}
         </Button>
       </div>

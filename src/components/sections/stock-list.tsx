@@ -1,8 +1,8 @@
-import { WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Section from "@/components/section";
 import StockTable, { type StockRow } from "@/components/stock-table";
 import TextLink from "@/components/text-link";
+import WhatsappIcon from "@/components/whatsapp-icon";
 import { stock, whatsappMessages } from "@/content/site";
 import { stockSizes, type StockSize } from "@/content/stock";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -54,7 +54,7 @@ export default function StockList() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href="#contact">{stock.emptyAction}</Button>
             <Button href={whatsappUrl(whatsappMessages.general)} variant="secondary" newTab>
-              <WhatsappLogoIcon aria-hidden="true" size={20} />
+              <WhatsappIcon aria-hidden="true" size={20} />
               {stock.whatsappAction}
             </Button>
           </div>

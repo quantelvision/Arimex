@@ -1,6 +1,7 @@
-import { EnvelopeSimpleIcon, MapPinIcon, PhoneIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
+import { EnvelopeSimpleIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react/ssr";
 import Container from "@/components/container";
 import TextLink from "@/components/text-link";
+import WhatsappIcon from "@/components/whatsapp-icon";
 import Wordmark from "@/components/wordmark";
 import { business, contact, footer, nav, whatsappMessages } from "@/content/site";
 import { currentYear } from "@/lib/current-year";
@@ -18,7 +19,7 @@ const channels = [
     label: contact.labels.whatsapp,
     href: whatsappUrl(whatsappMessages.general),
     text: business.phone.display,
-    Icon: WhatsappLogoIcon,
+    Icon: WhatsappIcon,
     newTab: true,
   },
   { label: contact.labels.email, href: `mailto:${business.email}`, text: business.email, Icon: EnvelopeSimpleIcon, newTab: false },

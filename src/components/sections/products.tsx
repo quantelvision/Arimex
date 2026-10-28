@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
+import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Card from "@/components/card";
 import Section from "@/components/section";
+import WhatsappIcon from "@/components/whatsapp-icon";
 import { hero, products, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -66,7 +67,7 @@ export default function Products() {
                     <ArrowRightIcon aria-hidden="true" size={18} />
                   </Button>
                   <Button href={whatsappUrl(whatsappMessages.product(card.name.toLowerCase()))} variant="secondary" newTab>
-                    <WhatsappLogoIcon aria-hidden="true" size={20} />
+                    <WhatsappIcon aria-hidden="true" size={20} />
                     {hero.whatsappAction}
                   </Button>
                 </div>

@@ -1,8 +1,9 @@
-import { CheckIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
+import { CheckIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Card from "@/components/card";
 import PalletDiagram from "@/components/pallet-diagram";
 import Section from "@/components/section";
+import WhatsappIcon from "@/components/whatsapp-icon";
 import { hero, pallets, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -39,7 +40,7 @@ export default function Pallets() {
               {pallets.action}
             </Button>
             <Button href={whatsappUrl(whatsappMessages.product("wooden pallets"))} variant="secondary" newTab>
-              <WhatsappLogoIcon aria-hidden="true" size={20} />
+              <WhatsappIcon aria-hidden="true" size={20} />
               {hero.whatsappAction}
             </Button>
           </div>
