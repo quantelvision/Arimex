@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Button from "@/components/button";
 import Card from "@/components/card";
-import ImagePlaceholder from "@/components/image-placeholder";
 import Section from "@/components/section";
 import { hero, products, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -20,7 +20,15 @@ export default function Products() {
               as="li"
               className={`grid md:min-h-120 ${flipped ? "md:grid-cols-[3fr_2fr]" : "md:grid-cols-[2fr_3fr]"}`}
             >
-              <ImagePlaceholder className={`aspect-16/10 md:aspect-auto ${flipped ? "md:order-last" : ""}`} />
+              <div className={`relative aspect-16/10 bg-wood md:aspect-auto ${flipped ? "md:order-last" : ""}`}>
+                <Image
+                  src={card.image}
+                  alt={card.imageAlt}
+                  fill
+                  sizes="(min-width: 72rem) 29rem, (min-width: 48rem) 40vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="flex flex-col gap-7 p-6 sm:p-8 lg:p-12">
                 <div>
                   <p className={subheading}>{card.category}</p>

@@ -82,7 +82,8 @@ export const products = {
         { label: "Grade and drying", value: "Confirmed in your quote" },
       ],
       action: "Ask for a pine price",
-      imageAlt: "Pine boards with warm yellow grain and visible knots",
+      image: "/images/products/pine.jpg",
+      imageAlt: "Stacked sawn pine boards with knots and resin streaks, separated by spacer sticks",
     },
     {
       id: "spruce",
@@ -96,7 +97,8 @@ export const products = {
         { label: "Grade and drying", value: "Confirmed in your quote" },
       ],
       action: "Ask for a spruce price",
-      imageAlt: "Pale spruce boards with fine, even grain",
+      image: "/images/products/spruce.jpg",
+      imageAlt: "Pale planed spruce boards with small knots, stacked in a timber warehouse",
     },
     {
       id: "pallets",
@@ -111,7 +113,8 @@ export const products = {
         { label: "Wood and load", value: "Matched to your load in the quote" },
       ],
       action: "Ask for a pallet price",
-      imageAlt: "New wooden pallets stacked in a workshop",
+      image: "/images/products/pallets.jpg",
+      imageAlt: "A stack of new wooden block pallets on a warehouse floor",
     },
   ],
 };
