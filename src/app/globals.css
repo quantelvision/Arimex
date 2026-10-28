@@ -201,6 +201,23 @@ h1, h2, h3, h4, .heading {
       animation-range: 0 100svh;
     }
   }
+
+  /* smooth FAQ height where the browser can animate to auto, others open at once */
+  @supports (interpolate-size: allow-keywords) {
+    .faq-item {
+      interpolate-size: allow-keywords;
+    }
+
+    .faq-item::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 300ms ease, content-visibility 300ms allow-discrete;
+    }
+
+    .faq-item[open]::details-content {
+      height: auto;
+    }
+  }
 }
 
 html.theme-anim, html.theme-anim * {
