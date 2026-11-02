@@ -144,6 +144,20 @@ export const stock = {
 export const pallets = {
   heading: "Pallets made to order",
   intro: "We build each batch after you confirm the order, so every pallet is made for your load and the way you handle it.",
+  timber: {
+    heading: "Timber sizes",
+    note: "Thickness x width in millimetres. Lengths run from the shortest to the longest board in 0.3 m steps.",
+    lengthsLabel: "Lengths",
+    lengths: (shortest: number, longest: number) => `${shortest.toFixed(1)} to ${longest.toFixed(1)} m`,
+    action: "Ask about this size",
+    // TODO(client): taken from the two packing lists sent on 2 Nov 2026; confirm these are the regular sizes (open question 14)
+    sizes: [
+      { thickness: 47, width: 150, shortest: 2.4, longest: 5.4 },
+      { thickness: 47, width: 175, shortest: 2.4, longest: 5.4 },
+      { thickness: 63, width: 175, shortest: 3.0, longest: 4.2 },
+      { thickness: 75, width: 200, shortest: 2.4, longest: 4.8 },
+    ],
+  },
   typesHeading: "Pallet types",
   types: [
     {

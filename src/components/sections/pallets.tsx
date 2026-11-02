@@ -1,4 +1,5 @@
 import { CheckIcon } from "@phosphor-icons/react/ssr";
+import BoardEndView from "@/components/board-end-view";
 import Button from "@/components/button";
 import Card from "@/components/card";
 import PalletDiagram from "@/components/pallet-diagram";
@@ -7,17 +8,50 @@ import WhatsappIcon from "@/components/whatsapp-icon";
 import { hero, pallets, whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
+const { timber } = pallets;
+
 export default function Pallets() {
   return (
     <Section id="pallets" heading={pallets.heading} intro={pallets.intro}>
-      <h3 className="text-h3">{pallets.typesHeading}</h3>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+        <h3 className="text-h3">{timber.heading}</h3>
+        <p className="text-small text-muted">{timber.note}</p>
+      </div>
       <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {timber.sizes.map((size) => {
+          const label = `${size.thickness} x ${size.width} mm`;
+          return (
+            <Card key={label} as="li" reveal className="flex flex-col p-5">
+              <div className="rounded-md bg-bg px-2 pt-3 pb-1">
+                <BoardEndView thickness={size.thickness} width={size.width} className="w-full text-heading" />
+              </div>
+              <h4 className="mt-5 text-h3">{label}</h4>
+              <dl className="mt-3 flex items-baseline justify-between gap-3 border-t border-line pt-3">
+                <dt className="text-small text-muted">{timber.lengthsLabel}</dt>
+                <dd className="font-semibold text-heading">{timber.lengths(size.shortest, size.longest)}</dd>
+              </dl>
+              <Button href="#contact" variant="secondary" prefill={{ size: label }} className="mt-5 w-full">
+                {timber.action}
+              </Button>
+            </Card>
+          );
+        })}
+      </ul>
+
+      <h3 className="mt-16 text-h3">{pallets.typesHeading}</h3>
+      <ul className="mt-5 grid gap-x-12 lg:grid-cols-2">
         {pallets.types.map((type) => (
-          <Card key={type.id} as="li" reveal className="p-5">
-            <PalletDiagram type={type.id} className="mx-auto w-full max-w-60 text-heading" />
-            <h4 className="mt-4 text-lead font-semibold text-heading">{type.name}</h4>
-            <p className="mt-1 text-small text-muted">{type.description}</p>
-          </Card>
+          <li
+            key={type.id}
+            data-reveal
+            className="flex flex-col gap-4 border-t border-line py-6 sm:flex-row sm:items-center sm:gap-6"
+          >
+            <PalletDiagram type={type.id} className="w-48 shrink-0 text-heading sm:w-44" />
+            <div>
+              <h4 className="text-lead font-semibold text-heading">{type.name}</h4>
+              <p className="mt-1 text-small text-muted">{type.description}</p>
+            </div>
+          </li>
         ))}
       </ul>
 
