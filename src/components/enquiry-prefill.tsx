@@ -7,7 +7,7 @@ export default function EnquiryPrefill({ formId }: { formId: string }) {
     let lastPrefilledSize = "";
 
     function prefill(event: MouseEvent) {
-      const link = (event.target as Element).closest<HTMLAnchorElement>("a[data-product]");
+      const link = (event.target as Element).closest<HTMLAnchorElement>("a[data-product], a[data-size]");
       const form = document.getElementById(formId);
       if (!link || !form) return;
 

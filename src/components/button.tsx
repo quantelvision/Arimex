@@ -15,7 +15,7 @@ type ButtonProps = {
   variant?: keyof typeof variants;
   href?: string;
   newTab?: boolean;
-  prefill?: { product: string; size?: string };
+  prefill?: { product?: string; size?: string };
   type?: "button" | "submit";
   disabled?: boolean;
   onClick?: () => void;
