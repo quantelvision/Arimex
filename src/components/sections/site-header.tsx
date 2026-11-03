@@ -1,7 +1,7 @@
 import Button from "@/components/button";
 import Container from "@/components/container";
+import Logo from "@/components/logo";
 import MobileMenu from "@/components/mobile-menu";
-import Wordmark from "@/components/wordmark";
 import { nav } from "@/content/site";
 
 export default function SiteHeader() {
@@ -13,9 +13,9 @@ export default function SiteHeader() {
       >
         {nav.skipLink}
       </a>
-      <Container className="flex min-h-16 items-center justify-between gap-4">
-        <a href="#top" className="py-2">
-          <Wordmark className="text-h3" />
+      <Container className="flex min-h-16 items-center justify-between gap-3 sm:gap-4">
+        <a href="#top" className="shrink-0 py-2">
+          <Logo sizes="160px" className="h-8 sm:h-10" />
         </a>
         <nav aria-label={nav.label} className="hidden lg:block">
           <ul className="flex gap-7">
@@ -29,7 +29,9 @@ export default function SiteHeader() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <Button href="#contact">{nav.quoteAction}</Button>
+          <Button href="#contact" className="whitespace-nowrap max-[22.4rem]:hidden">
+            {nav.quoteAction}
+          </Button>
           <MobileMenu
             label={nav.label}
             links={nav.links}

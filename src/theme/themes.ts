@@ -21,6 +21,8 @@ export type Palette = {
     shadow: string;
     overlay: string;
     onOverlay: string;
+    // letters of the logo: the brand navy on light grounds, the heading colour on dark ones
+    logo: string;
   };
 };
 
@@ -56,6 +58,7 @@ export const palettes: Palette[] = [
       shadow: "#2B1D12",
       overlay: "#1E140C",
       onOverlay: "#FBF7F0",
+      logo: "#002F67",
     },
   },
   {
@@ -81,6 +84,7 @@ export const palettes: Palette[] = [
       shadow: "#410200",
       overlay: "#240C0E",
       onOverlay: "#FFF1EE",
+      logo: "#002F67",
     },
   },
   {
@@ -106,6 +110,7 @@ export const palettes: Palette[] = [
       shadow: "#410200",
       overlay: "#240C0E",
       onOverlay: "#FFFFFF",
+      logo: "#002F67",
     },
   },
   {
@@ -131,6 +136,7 @@ export const palettes: Palette[] = [
       shadow: "#3B2A20",
       overlay: "#1F1611",
       onOverlay: "#FFFDF9",
+      logo: "#002F67",
     },
   },
   {
@@ -156,6 +162,7 @@ export const palettes: Palette[] = [
       shadow: "#1F3A2B",
       overlay: "#111D16",
       onOverlay: "#FAFBF7",
+      logo: "#002F67",
     },
   },
   {
@@ -181,6 +188,7 @@ export const palettes: Palette[] = [
       shadow: "#4A2A12",
       overlay: "#22140A",
       onOverlay: "#FCF7F0",
+      logo: "#002F67",
     },
   },
   {
@@ -206,6 +214,7 @@ export const palettes: Palette[] = [
       shadow: "#3A1A12",
       overlay: "#1F120E",
       onOverlay: "#FAF8F6",
+      logo: "#002F67",
     },
   },
   {
@@ -231,6 +240,7 @@ export const palettes: Palette[] = [
       shadow: "#2C3A47",
       overlay: "#141B22",
       onOverlay: "#FFFFFF",
+      logo: "#002F67",
     },
   },
   {
@@ -256,6 +266,7 @@ export const palettes: Palette[] = [
       shadow: "#1F1B16",
       overlay: "#15120E",
       onOverlay: "#F7F0E4",
+      logo: "#002F67",
     },
   },
   {
@@ -281,6 +292,7 @@ export const palettes: Palette[] = [
       shadow: "#000000",
       overlay: "#160708",
       onOverlay: "#FCD5CE",
+      logo: "#FCD5CE",
     },
   },
   {
@@ -306,6 +318,7 @@ export const palettes: Palette[] = [
       shadow: "#000000",
       overlay: "#0E0D0C",
       onOverlay: "#F6EEDF",
+      logo: "#F6EEDF",
     },
   },
   {
@@ -331,6 +344,7 @@ export const palettes: Palette[] = [
       shadow: "#000000",
       overlay: "#0B110E",
       onOverlay: "#EEF5F0",
+      logo: "#EEF5F0",
     },
   },
 ];

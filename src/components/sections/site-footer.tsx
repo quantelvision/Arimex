@@ -1,8 +1,8 @@
 import { EnvelopeSimpleIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react/ssr";
 import Container from "@/components/container";
+import Logo from "@/components/logo";
 import TextLink from "@/components/text-link";
 import WhatsappIcon from "@/components/whatsapp-icon";
-import Wordmark from "@/components/wordmark";
 import { business, contact, footer, nav, whatsappMessages } from "@/content/site";
 import { currentYear } from "@/lib/current-year";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -34,8 +34,8 @@ export default async function SiteFooter() {
     <footer className="on-band pattern pattern-rings grain bg-band text-on-band">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_1fr_0.8fr] lg:gap-12">
         <div>
-          <Wordmark className="text-h2" />
-          <p className="mt-3 font-semibold">{business.legalName}</p>
+          <Logo sizes="216px" className="h-14" />
+          <p className="mt-4 font-semibold">{business.legalName}</p>
           <p className="mt-1 text-small">{footer.brandLine}</p>
           <p className="mt-3 text-small">
             {footer.gstinLabel}: {business.gstin}

@@ -52,6 +52,7 @@
   --color-error: var(--ax-error);
   --color-overlay: var(--ax-overlay);
   --color-on-overlay: var(--ax-on-overlay);
+  --color-logo: var(--ax-logo);
   --font-heading: var(--ax-font-heading);
   --font-body: var(--ax-font-body);
   --shadow-card: 0 1px 2px color-mix(in srgb, var(--ax-shadow) 10%, transparent),
