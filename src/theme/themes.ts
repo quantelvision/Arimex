@@ -340,6 +340,13 @@ const sans = "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 
 export const fontPairings: FontPairing[] = [
   {
+    id: "geometric",
+    label: "Manrope",
+    note: "One geometric family, clean and modern.",
+    heading: { family: `'Manrope Variable', ${sans}`, weight: 800, stretch: "100%", tracking: "-0.02em" },
+    body: { family: `'Manrope Variable', ${sans}` },
+  },
+  {
     id: "sturdy",
     label: "Bitter and Source Sans 3",
     note: "Slab serif headings, like a stamped crate.",
@@ -402,13 +409,6 @@ export const fontPairings: FontPairing[] = [
     heading: { family: `'Cormorant Variable', ${serif}`, weight: 700, stretch: "100%", tracking: "0" },
     body: { family: `'Source Sans 3 Variable', ${sans}` },
   },
-  {
-    id: "geometric",
-    label: "Manrope",
-    note: "One geometric family, clean and modern.",
-    heading: { family: `'Manrope Variable', ${sans}`, weight: 800, stretch: "100%", tracking: "-0.02em" },
-    body: { family: `'Manrope Variable', ${sans}` },
-  },
 ];
 
 // neutral colours for the theme engine window, so it reads the same over every palette
@@ -425,7 +425,7 @@ export const engineUi = {
 export const roundness = { initial: 1, min: 0, max: 2, step: 0.1 };
 
 export const defaultPalette = "pine";
-export const defaultFont = "sturdy";
+export const defaultFont = "geometric";
 
 export const switcherEnabled = process.env.NEXT_PUBLIC_THEME_SWITCHER !== "off";
 
