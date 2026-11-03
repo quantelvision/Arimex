@@ -278,12 +278,25 @@ export const industries = {
 
 export const about = {
   heading: "About AriMex",
-  // TODO(client): founder name and a line on why the business started
+  tagline: "Premium timber. Trusted supply.",
   paragraphs: [
-    "AriMex is the timber and pallet brand of Amirtham Imports and Exports, based on Appavu Street in Alandur, Chennai.",
-    "We are a new business. We supply pine and spruce timber, and we build wooden pallets to order.",
-    "Being new, we work order by order: a clear quote for the sizes you need, and direct replies from the people handling your order.",
+    "AriMex is the timber and pallet brand of Amirtham Imports and Exports, based in Alandur, Chennai. We trade high quality spruce and pine timber imported from around the world, and supply pallets to businesses in many industries.",
+    "We focus on reliable, cost-effective products for logistics, packaging and material handling.",
   ],
+  focusAreas: [
+    {
+      id: "pallets",
+      title: "Pallets for industry",
+      text: "Euro size and GMA pallets, and custom pallets made to order for multinational companies.",
+    },
+    {
+      id: "timber",
+      title: "Interiors and construction",
+      text: "Premium spruce and pine for construction and interior work in residential, commercial and industrial projects.",
+    },
+  ],
+  detailsHeading: "Business details",
+  detailLabels: { legalName: "Legal name", brand: "Brand", gstin: "GSTIN", base: "Based in" },
 };
 
 export const faq = {
