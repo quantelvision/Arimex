@@ -36,8 +36,7 @@ export default async function SiteFooter() {
         <div>
           <Logo sizes="216px" className="h-14" />
           <p className="mt-4 font-semibold">{business.legalName}</p>
-          <p className="mt-1 text-small">{footer.brandLine}</p>
-          <p className="mt-3 text-small">
+          <p className="mt-1 text-small">
             {footer.gstinLabel}: {business.gstin}
           </p>
         </div>

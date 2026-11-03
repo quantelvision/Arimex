@@ -405,6 +405,5 @@ export const footer = {
   navLabel: "Footer",
   quickLinksHeading: "Quick links",
   gstinLabel: "GSTIN",
-  brandLine: "AriMex is a brand of Amirtham Imports and Exports.",
   copyright: (year: number) => `© ${year} Amirtham Imports and Exports`,
 };
