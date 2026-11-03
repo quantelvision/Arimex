@@ -23,10 +23,6 @@ export default function Pallets() {
                 <BoardEndView thickness={size.thickness} width={size.width} className="w-full text-heading" />
               </div>
               <h4 className="mt-5 text-h3">{label}</h4>
-              <dl className="mt-3 flex items-baseline justify-between gap-3 border-t border-line pt-3">
-                <dt className="text-small text-muted">{timber.lengthsLabel}</dt>
-                <dd className="font-semibold text-heading">{timber.lengths(size.shortest, size.longest)}</dd>
-              </dl>
               <Button href="#contact" variant="secondary" prefill={{ size: label }} className="mt-5 w-full">
                 {timber.action}
               </Button>
