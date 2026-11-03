@@ -18,8 +18,7 @@ export default function Hero() {
         <HeroVideo sources={hero.media.videos} pauseLabel={hero.pauseVideo} playLabel={hero.playVideo} />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-t from-overlay/90 via-overlay/65 to-overlay/25" />
         <Container className="py-12 md:py-20">
-          <p className="text-label font-semibold tracking-wider uppercase">{hero.eyebrow}</p>
-          <h1 id="top-heading" className="mt-4 max-w-4xl text-display text-on-overlay">
+          <h1 id="top-heading" className="max-w-4xl text-display text-on-overlay">
             {hero.heading}
           </h1>
           <p className="mt-5 max-w-2xl text-lead">{hero.lead}</p>
