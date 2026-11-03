@@ -142,8 +142,7 @@ export const pallets = {
   heading: "Pallets made to order",
   intro: "We build each batch after you confirm the order, so every pallet is made for your load and the way you handle it.",
   timber: {
-    heading: "Timber sizes",
-    note: "Thickness x width in millimetres. Lengths run from the shortest to the longest board in 0.3 m steps.",
+    heading: "Sizes",
     lengthsLabel: "Lengths",
     lengths: (shortest: number, longest: number) => `${shortest.toFixed(1)} to ${longest.toFixed(1)} m`,
     action: "Ask about this size",

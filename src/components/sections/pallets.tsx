@@ -13,10 +13,7 @@ const { timber } = pallets;
 export default function Pallets() {
   return (
     <Section id="pallets" heading={pallets.heading} intro={pallets.intro}>
-      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-        <h3 className="text-h3">{timber.heading}</h3>
-        <p className="text-small text-muted">{timber.note}</p>
-      </div>
+      <h3 className="text-h3">{timber.heading}</h3>
       <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {timber.sizes.map((size) => {
           const label = `${size.thickness} x ${size.width} mm`;
