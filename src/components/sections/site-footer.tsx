@@ -37,11 +37,9 @@ export default async function SiteFooter() {
           <Wordmark className="text-h2" />
           <p className="mt-3 font-semibold">{business.legalName}</p>
           <p className="mt-1 text-small">{footer.brandLine}</p>
-          {business.gstin && (
-            <p className="mt-3 text-small">
-              {footer.gstinLabel}: {business.gstin}
-            </p>
-          )}
+          <p className="mt-3 text-small">
+            {footer.gstinLabel}: {business.gstin}
+          </p>
         </div>
 
         <div>

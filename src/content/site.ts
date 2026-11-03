@@ -13,8 +13,7 @@ export const business = {
   whatsapp: "917550130234",
   // TODO(client): confirm the business email, proposal is sales@arimex.in (open question 4)
   email: "amirthamtrades@gmail.com",
-  // TODO(client): GST number (open question 2)
-  gstin: null,
+  gstin: "33DGVPP8566G1ZK",
 };
 
 export const meta = {
@@ -335,8 +334,7 @@ export const faq = {
     },
     {
       question: "Do you provide a GST invoice?",
-      // TODO(client): GST registration (open question 2)
-      answer: "We confirm invoicing details with your quote.",
+      answer: `Yes. ${business.legalName} is GST registered, GSTIN ${business.gstin}.`,
     },
     {
       question: "Can I see the wood before a bulk order?",
