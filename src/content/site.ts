@@ -41,9 +41,8 @@ export const nav = {
 
 export const hero = {
   eyebrow: "Pine, spruce and wooden pallets in Chennai",
-  // TODO(client): heading and lead match the reference site word for word, and the sustainability and legal harvesting claims need confirmation (open question 13)
-  heading: "Sustainable Timber, Responsibly Sourced",
-  lead: "Legally harvested wood products backed by environmental stewardship",
+  heading: "Your trusted partner for premium timber and pallet solutions",
+  lead: "Spruce and pine timber imported from around the world, and wooden pallets built to your order.",
   quoteAction: "Request a quote",
   whatsappAction: "Chat on WhatsApp",
   // TODO(client): replace with a photo or video of AriMex stock (open question 9)
