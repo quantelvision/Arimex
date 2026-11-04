@@ -1,12 +1,5 @@
-import { HouseLineIcon, PackageIcon } from "@phosphor-icons/react/ssr";
-import Card from "@/components/card";
 import Section from "@/components/section";
 import { about, business } from "@/content/site";
-
-const focusIcons: Record<string, typeof PackageIcon> = {
-  pallets: PackageIcon,
-  timber: HouseLineIcon,
-};
 
 const { detailLabels } = about;
 const details = [
@@ -43,19 +36,6 @@ export default function About() {
           </dl>
         </div>
       </div>
-
-      <ul className="mt-10 grid gap-5 md:grid-cols-2">
-        {about.focusAreas.map((area) => {
-          const AreaIcon = focusIcons[area.id];
-          return (
-            <Card key={area.id} as="li" reveal className="p-6">
-              <AreaIcon aria-hidden="true" size={32} className="text-accent" />
-              <h3 className="mt-4 text-h3">{area.title}</h3>
-              <p className="mt-2 text-muted">{area.text}</p>
-            </Card>
-          );
-        })}
-      </ul>
     </Section>
   );
 }
