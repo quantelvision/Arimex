@@ -35,7 +35,7 @@ export default function SelectField({
           defaultValue={defaultValue}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy(name, hint, error)}
-          className={`${controlClass} appearance-none pr-10`}
+          className={`${controlClass} field-select peer pr-10 has-[option[value='']:checked]:text-muted`}
         >
           <option value="" disabled>
             {placeholder}
@@ -49,7 +49,7 @@ export default function SelectField({
         <CaretDownIcon
           aria-hidden="true"
           size={18}
-          className="pointer-events-none absolute top-1/2 right-3.5 -translate-y-1/2 text-muted"
+          className="pointer-events-none absolute top-1/2 right-3.5 -translate-y-1/2 text-muted peer-open:rotate-180"
         />
       </div>
     </FormField>
