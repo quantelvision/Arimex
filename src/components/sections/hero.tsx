@@ -15,7 +15,7 @@ export default function Hero() {
     >
       <div className="on-overlay relative isolate flex flex-1 items-end overflow-hidden rounded-lg bg-overlay text-on-overlay">
         <Image src={hero.media.poster} alt={hero.media.alt} fill preload sizes="100vw" className="-z-10 object-cover" />
-        <HeroVideo sources={hero.media.videos} pauseLabel={hero.pauseVideo} playLabel={hero.playVideo} />
+        <HeroVideo renditions={hero.media.videos} pauseLabel={hero.pauseVideo} playLabel={hero.playVideo} />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-t from-overlay/90 via-overlay/65 to-overlay/25" />
         <Container className="py-12 md:py-20">
           <h1 id="top-heading" className="max-w-4xl text-display text-on-overlay">

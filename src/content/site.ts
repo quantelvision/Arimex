@@ -46,11 +46,13 @@ export const hero = {
   // TODO(client): replace with a photo or video of AriMex stock (open question 9)
   media: {
     poster: "/images/hero-poster.jpg",
+    // the first match plays: a centre crop for portrait screens, full size for wide ones
     videos: [
-      { src: "/videos/hero.webm", type: "video/webm" },
-      { src: "/videos/hero.mp4", type: "video/mp4" },
+      { media: "(orientation: portrait)", webm: "/videos/hero-portrait.webm", mp4: "/videos/hero-portrait.mp4" },
+      { media: "(min-width: 1280px)", webm: "/videos/hero-1080.webm", mp4: "/videos/hero-1080.mp4" },
+      { media: "all", webm: "/videos/hero-720.webm", mp4: "/videos/hero-720.mp4" },
     ],
-    alt: "Stacks of round timber logs in an open timber yard",
+    alt: "Aerial view of stacked sawn timber in a timber yard",
   },
   pauseVideo: "Pause background video",
   playVideo: "Play background video",
