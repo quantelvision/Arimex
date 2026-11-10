@@ -19,13 +19,34 @@ import "@fontsource-variable/red-hat-text";
 import "@fontsource-variable/cormorant";
 import "@fontsource-variable/manrope";
 import "./globals.css";
-import { meta } from "@/content/site";
+import { business, meta } from "@/content/site";
+import { siteUrl } from "@/lib/site-url";
 import ThemeEngine from "@/theme/theme-engine";
 import { buildThemeCss, defaultFont, defaultPalette, noFlashScript, switcherEnabled } from "@/theme/themes";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: meta.title,
   description: meta.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: business.brand,
+    locale: meta.locale,
+    title: meta.title,
+    description: meta.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

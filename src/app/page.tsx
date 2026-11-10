@@ -12,6 +12,7 @@ import SiteFooter from "@/components/sections/site-footer";
 import SiteHeader from "@/components/sections/site-header";
 import StockList from "@/components/sections/stock-list";
 import TrustStrip from "@/components/sections/trust-strip";
+import StructuredData from "@/components/structured-data";
 import WhatsappFloat from "@/components/whatsapp-float";
 import { whatsappMessages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -19,6 +20,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <SiteHeader />
       <main id="main">
         <Hero />

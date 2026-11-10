@@ -8,6 +8,7 @@ export const business = {
     postalCode: "600016",
     region: "Tamil Nadu",
     country: "India",
+    countryCode: "IN",
   },
   phone: { display: "+91 75501 30234", tel: "+917550130234" },
   whatsapp: "917550130234",
@@ -16,10 +17,12 @@ export const business = {
   gstin: "33DGVPP8566G1ZK",
 };
 
+// title up to 50 characters and description up to 90 (Quantel Vision, 10 Nov 2026)
 export const meta = {
-  title: "Pine, Spruce and Wooden Pallets in Chennai | AriMex",
-  description:
-    "Pine and spruce timber, and wooden pallets made to order: 2 way, 4 way, Euro size and custom sizes. Amirtham Imports and Exports, Alandur, Chennai.",
+  title: "Pine, Spruce and Wooden Pallets, Chennai | AriMex",
+  description: "Imported pine and spruce timber, and wooden pallets made to order. Alandur, Chennai.",
+  locale: "en_IN",
+  language: "en-IN",
 };
 
 export const nav = {
@@ -287,6 +290,7 @@ export const about = {
 
 export const faq = {
   heading: "Questions buyers ask",
+  // only entries marked confirmed rest on facts the client has given, and only those go into the FAQPage structured data
   entries: [
     {
       question: "What is the minimum order?",
@@ -301,6 +305,7 @@ export const faq = {
     {
       question: "Can you make pallets in custom sizes?",
       answer: "Yes. We build to the length, width and height you give us, for the load you describe. A drawing, a photo or a sample pallet helps.",
+      confirmed: true,
     },
     {
       question: "Do you supply heat treated pallets for export?",
@@ -334,6 +339,7 @@ export const faq = {
     {
       question: "Do you provide a GST invoice?",
       answer: `Yes. ${business.legalName} is GST registered, GSTIN ${business.gstin}.`,
+      confirmed: true,
     },
     {
       question: "Can I see the wood before a bulk order?",
