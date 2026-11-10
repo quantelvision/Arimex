@@ -56,25 +56,3 @@ export function validateEnquiry(values: EnquiryValues): EnquiryErrors {
   }
   return errors;
 }
-
-const productLabel = (value: string) => productOptions.find((option) => option.value === value)?.label ?? value;
-
-const escapeHtml = (text: string) =>
-  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-
-export function enquiryEmail(values: EnquiryValues) {
-  const rows = enquiryFields
-    .map((field) => [enquiryForm.fields[field].label, field === "product" ? productLabel(values.product) : values[field]])
-    .filter(([, value]) => value);
-
-  return {
-    subject: `New enquiry: ${[productLabel(values.product), values.quantity, values.city].filter(Boolean).join(", ")}`,
-    text: rows.map(([label, value]) => `${label}: ${value}`).join("\n"),
-    html: `<table cellpadding="8" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">${rows
-      .map(
-        ([label, value]) =>
-          `<tr><th align="left" valign="top">${escapeHtml(label)}</th><td>${escapeHtml(value).replace(/\n/g, "<br>")}</td></tr>`,
-      )
-      .join("")}</table>`,
-  };
-}

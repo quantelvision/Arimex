@@ -441,6 +441,12 @@ export const roundness = { initial: 1, min: 0, max: 2, step: 0.1 };
 export const defaultPalette = "pine";
 export const defaultFont = "geometric";
 
+// email clients cannot read the site's CSS variables or load its web fonts, so the enquiry email takes the default palette directly
+export const emailTheme = {
+  colors: (palettes.find((palette) => palette.id === defaultPalette) ?? palettes[0]).tokens,
+  font: "Manrope, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+};
+
 export const switcherEnabled = process.env.NEXT_PUBLIC_THEME_SWITCHER !== "off";
 
 export const storageKeys = {

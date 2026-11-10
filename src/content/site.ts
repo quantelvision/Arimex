@@ -391,6 +391,16 @@ export const enquiryForm = {
   },
 };
 
+export const enquiryEmailCopy = {
+  heading: "New enquiry",
+  callAction: "Call",
+  whatsappAction: "WhatsApp",
+  emailAction: "Email",
+  whatsappGreeting: (name: string, product: string) => `Hello ${name}, this is AriMex about your enquiry for ${product}.`,
+  replySubject: "Your AriMex enquiry",
+  sentFrom: (site: string, time: string) => `Sent from the quote form on ${site} on ${time} IST.`,
+};
+
 export const whatsappMessages = {
   general: "Hello AriMex, I would like a quote.",
   product: (product: string) => `Hello AriMex, I would like a price for ${product}.`,

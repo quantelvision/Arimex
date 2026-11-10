@@ -3,7 +3,8 @@
 import { checkRateLimit } from "@vercel/firewall";
 import { headers } from "next/headers";
 import { Resend } from "resend";
-import { enquiryEmail, readEnquiry, validateEnquiry, type EnquiryState } from "@/lib/enquiry";
+import { readEnquiry, validateEnquiry, type EnquiryState } from "@/lib/enquiry";
+import { enquiryEmail } from "@/lib/enquiry-email";
 
 const rateLimitId = "enquiry-form";
 
