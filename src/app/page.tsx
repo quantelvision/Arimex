@@ -1,6 +1,7 @@
 import About from "@/components/sections/about";
 import Contact, { enquiryFormId } from "@/components/sections/contact";
 import Faq from "@/components/sections/faq";
+import Gallery from "@/components/sections/gallery";
 import Hero from "@/components/sections/hero";
 import Industries from "@/components/sections/industries";
 import Ordering from "@/components/sections/ordering";
@@ -25,6 +26,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Products />
+        <Gallery />
         <StockList />
         <Pallets />
         <TrustStrip />

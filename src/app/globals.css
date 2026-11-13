@@ -119,6 +119,11 @@ h1, h2, h3, h4, .heading {
   outline-color: var(--ax-on-overlay);
 }
 
+/* the page stays still behind the open gallery lightbox */
+html:has(.gallery-lightbox[open]) {
+  overflow: hidden;
+}
+
 }
 
 @layer components {

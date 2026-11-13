@@ -130,6 +130,21 @@ export const products = {
   ],
 };
 
+export const gallery = {
+  heading: "Gallery",
+  initialCount: 10,
+  moreAction: "Add more",
+  shownNote: (shown: number, total: number) => `Showing ${shown} of ${total} photos`,
+  dialogLabel: "Photo gallery",
+  closeLabel: "Close gallery",
+  previousLabel: "Previous photo",
+  nextLabel: "Next photo",
+  position: (current: number, total: number) => `${current} of ${total}`,
+  thumbnailsLabel: "All photos",
+  showPhoto: (current: number) => `Show photo ${current}`,
+  altFallback: (current: number) => `Timber photo ${current}`,
+};
+
 export const stock = {
   heading: "Sizes we supply",
   intro: "Pine and spruce sizes we supply. Ask about a size and we confirm availability and price.",

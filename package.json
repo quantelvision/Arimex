@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/build-stock.mjs",
+    "predev": "node scripts/build-stock.mjs && node scripts/build-gallery.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/build-stock.mjs --strict",
+    "prebuild": "node scripts/build-stock.mjs --strict && node scripts/build-gallery.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -45,6 +45,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "read-excel-file": "^9.3.12",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
