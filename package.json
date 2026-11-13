@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/build-stock.mjs && node scripts/build-gallery.mjs",
+    "predev": "node scripts/build-stock.mjs && node scripts/watermark-gallery.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/build-stock.mjs --strict && node scripts/build-gallery.mjs",
+    "prebuild": "node scripts/build-stock.mjs --strict && node scripts/watermark-gallery.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gallery": "node scripts/watermark-gallery.mjs"
   },
   "dependencies": {
     "@fontsource-variable/aleo": "^5.3.0",

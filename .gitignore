@@ -43,9 +43,9 @@ next-env.d.ts
 # generated from src/content/stock.xlsx
 /src/content/stock.generated.json
 
-# generated from assets/gallery
+# generated from assets/gallery by scripts/watermark-gallery.mjs
 /src/content/gallery.generated.json
-/public/images/gallery/
+/public/gallery/
 
 # local context
 /docs
