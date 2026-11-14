@@ -109,7 +109,7 @@ export const products = {
       ],
       action: "Ask for a spruce price",
       image: "/images/products/spruce.jpg",
-      imageAlt: "Pale planed spruce boards with small knots, stacked in a timber warehouse",
+      imageAlt: "A stack of pale planed spruce boards with small knots",
     },
     {
       id: "pallets",
@@ -125,7 +125,7 @@ export const products = {
       ],
       action: "Ask for a pallet price",
       image: "/images/products/pallets.jpg",
-      imageAlt: "A stack of new wooden block pallets on a warehouse floor",
+      imageAlt: "Two new wooden block pallets, one resting at an angle on the other",
     },
   ],
 };
